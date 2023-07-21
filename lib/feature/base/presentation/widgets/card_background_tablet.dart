@@ -5,7 +5,7 @@ class CardBackgroundTablet extends StatelessWidget {
   final Widget? body;
   final int flexible;
 
-  const CardBackgroundTablet({Key? key, required this.body, this.flexible = 1}) : super(key: key);
+  const CardBackgroundTablet({super.key, required this.body, this.flexible = 1});
 
   @override
   Widget build(BuildContext context) {

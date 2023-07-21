@@ -48,9 +48,5 @@ class UserStateEntitiesAdapter extends TypeAdapter<UserStateEntities> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) =>
-      identical(this, other) ||
-      other is UserStateEntitiesAdapter &&
-          runtimeType == other.runtimeType &&
-          typeId == other.typeId;
+  bool operator ==(Object other) => identical(this, other) || other is UserStateEntitiesAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }

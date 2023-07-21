@@ -1,10 +1,8 @@
-
 import 'package:package_info_plus/package_info_plus.dart';
 
 final PackageInfoService packageInfoService = PackageInfoService.instance;
 
 class PackageInfoService {
-
   static final PackageInfoService _instance = PackageInfoService();
 
   static PackageInfoService get instance => _instance;

@@ -25,7 +25,7 @@ class CustomPrimaryButton extends StatelessWidget {
   final Widget? child;
 
   const CustomPrimaryButton({
-    Key? key,
+    super.key,
     this.type = ButtonType.small,
     this.style = ButtonStyles.filled,
     this.label,
@@ -36,7 +36,7 @@ class CustomPrimaryButton extends StatelessWidget {
     this.outlineColor,
     this.textColor,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +62,7 @@ class CustomPrimaryButton extends StatelessWidget {
   Widget displayButtonSmallFilled(bool isMobile) {
     return TextButton(
       style: TextButton.styleFrom(
+        foregroundColor: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
         backgroundColor: enable! ? ColorConstants.primary : ColorConstants.shadowCardColor,
         shape: rounded == true
@@ -69,7 +70,6 @@ class CustomPrimaryButton extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8.r),
               )
             : const StadiumBorder(),
-        primary: Colors.white,
         elevation: 0.0,
       ),
       onPressed: enable! ? onPressed : null,
@@ -112,6 +112,7 @@ class CustomPrimaryButton extends StatelessWidget {
   Widget displayButtonSmallOutlined(bool isMobile) {
     return OutlinedButton(
       style: OutlinedButton.styleFrom(
+        foregroundColor: Colors.white,
         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
         shape: rounded == true
             ? RoundedRectangleBorder(
@@ -122,8 +123,8 @@ class CustomPrimaryButton extends StatelessWidget {
           color: outlineColor != null ? outlineColor! : ColorConstants.shadowCardColor,
           width: 1,
         ),
-        primary: Colors.white,
       ),
+      onPressed: enable! ? onPressed : null,
       child: child != null
           ? child!
           : icon == null && label != null
@@ -157,7 +158,6 @@ class CustomPrimaryButton extends StatelessWidget {
                       ],
                     )
                   : Center(child: icon!),
-      onPressed: enable! ? onPressed : null,
     );
   }
 
@@ -166,6 +166,7 @@ class CustomPrimaryButton extends StatelessWidget {
       width: double.infinity,
       child: TextButton(
         style: TextButton.styleFrom(
+          foregroundColor: ColorConstants.white,
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
           backgroundColor: enable! ? ColorConstants.primary : ColorConstants.shadowCardColor,
           shape: rounded == true
@@ -173,7 +174,6 @@ class CustomPrimaryButton extends StatelessWidget {
                   borderRadius: BorderRadius.circular(8.r),
                 )
               : const StadiumBorder(),
-          primary: ColorConstants.white,
           elevation: 0.0,
         ),
         onPressed: enable! ? onPressed : null,
@@ -218,6 +218,7 @@ class CustomPrimaryButton extends StatelessWidget {
       width: double.infinity,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          foregroundColor: ColorConstants.outlineColor,
           padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: 14.h),
           shape: rounded == true
               ? RoundedRectangleBorder(
@@ -228,8 +229,8 @@ class CustomPrimaryButton extends StatelessWidget {
             color: outlineColor != null ? outlineColor! : ColorConstants.shadowCardColor,
             width: 1,
           ),
-          primary: ColorConstants.outlineColor,
         ),
+        onPressed: onPressed,
         child: child != null
             ? child!
             : icon == null && label != null
@@ -261,7 +262,6 @@ class CustomPrimaryButton extends StatelessWidget {
                         ],
                       )
                     : Center(child: icon!),
-        onPressed: onPressed,
       ),
     );
   }

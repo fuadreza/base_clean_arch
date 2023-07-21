@@ -9,12 +9,10 @@ import 'package:base_clean_arch/feature/base/data/services/hive_service.dart';
 import 'package:base_clean_arch/feature/base/domain/entities/user_state/user_state_entities.dart';
 import 'package:base_clean_arch/feature/base/presentation/modules/login/login_page.dart';
 import 'package:base_clean_arch/injection/injection.dart' as injection;
-import 'package:device_preview/device_preview.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_jailbreak_detection/flutter_jailbreak_detection.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -39,53 +37,29 @@ void main() async {
   final String? locationName = await hive.getLocationName();
 
   if (Platform.isAndroid || Platform.isIOS) {
-    final bool jailBroken = await FlutterJailbreakDetection.jailbroken;
-    if (!jailBroken) {
-      if (!kReleaseMode) {
-        runApp(
-          AndroidApp(
-            firstTimeLaunch: isFirstTimeLaunch,
-            userStateEntities: userStateEntities,
-            locationName: locationName,
-          ),
-        );
-      } else {
-        runApp(
-          AndroidApp(
-            firstTimeLaunch: isFirstTimeLaunch,
-            userStateEntities: userStateEntities,
-            locationName: locationName,
-          ),
-        );
-        // await SentryFlutter.init(
-        //       (options) => options
-        //     ..dsn = ''
-        //     ..environment = Environment.name
-        //     ..release = Environment.release,
-        //   appRunner: () => runApp(
-        //     AndroidApp(
-        //       firstTimeLaunch: isFirstTimeLaunch,
-        //       userStateEntities: userStateEntities,
-        //       locationName: locationName,
-        //     ),
-        //   ),
-        // );
-      }
+    if (!kReleaseMode) {
+      runApp(
+        AndroidApp(
+          firstTimeLaunch: isFirstTimeLaunch,
+          userStateEntities: userStateEntities,
+          locationName: locationName,
+        ),
+      );
     } else {
-      runApp(const JailbreakApp());
+      runApp(
+        AndroidApp(
+          firstTimeLaunch: isFirstTimeLaunch,
+          userStateEntities: userStateEntities,
+          locationName: locationName,
+        ),
+      );
     }
   } else {
     runApp(
-      DevicePreview(
-        enabled: false,
-        availableLocales: const [Locale('id_ID')],
-        builder: (context) {
-          return AndroidApp(
-            firstTimeLaunch: isFirstTimeLaunch,
-            userStateEntities: userStateEntities,
-            locationName: locationName,
-          );
-        },
+      AndroidApp(
+        firstTimeLaunch: isFirstTimeLaunch,
+        userStateEntities: userStateEntities,
+        locationName: locationName,
       ),
     );
   }
@@ -106,11 +80,11 @@ class AndroidApp extends StatelessWidget {
   final UserStateEntities? userStateEntities;
 
   const AndroidApp({
-    Key? key,
+    super.key,
     this.firstTimeLaunch = true,
     this.locationName,
     this.userStateEntities,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -127,7 +101,7 @@ class AndroidApp extends StatelessWidget {
           builder: (context, widget) {
             return MediaQuery(
               ///Setting font does not change with system font size
-              data: MediaQuery.of(context).copyWith(textScaleFactor: 1.0),
+              data: MediaQuery.of(context).copyWith(textScaler: const TextScaler.linear(1.0)),
               child: widget!,
             );
           },
@@ -138,15 +112,15 @@ class AndroidApp extends StatelessWidget {
       child: firstTimeLaunch!
           ? const LoginPage()
           : LoginPage(
-        userStateEntities: userStateEntities,
-        locationName: locationName,
-      ),
+              userStateEntities: userStateEntities,
+              locationName: locationName,
+            ),
     );
   }
 }
 
 class IosApp extends StatelessWidget {
-  const IosApp({Key? key}) : super(key: key);
+  const IosApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -162,7 +136,7 @@ class IosApp extends StatelessWidget {
 }
 
 class JailbreakApp extends StatelessWidget {
-  const JailbreakApp({Key? key}) : super(key: key);
+  const JailbreakApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -176,7 +150,7 @@ class JailbreakApp extends StatelessWidget {
 }
 
 class JailBreakPage extends StatelessWidget {
-  const JailBreakPage({Key? key}) : super(key: key);
+  const JailBreakPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -185,17 +159,17 @@ class JailBreakPage extends StatelessWidget {
         context: context,
         barrierDismissible: true,
         builder: (context) {
-          return WillPopScope(
-            onWillPop: () async => true,
+          return PopScope(
+            canPop: true,
             child: Dialog(
               child: Container(
                 padding: const EdgeInsets.all(20),
                 width: MediaQuery.of(context).size.width * 0.4,
-                child: Column(
+                child: const Column(
                   mainAxisSize: MainAxisSize.min,
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
-                  children: const [
+                  children: [
                     Text(
                       StringConstants.labelSecurityWarning,
                       textAlign: TextAlign.center,

@@ -10,7 +10,7 @@ class NormalText extends StatelessWidget {
   final bool isUnderline;
 
   const NormalText({
-    Key? key,
+    super.key,
     required this.text,
     required this.fontSize,
     required this.fontWeight,
@@ -18,7 +18,7 @@ class NormalText extends StatelessWidget {
     this.maxLines,
     this.textAlign,
     this.isUnderline = false,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

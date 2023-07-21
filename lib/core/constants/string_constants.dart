@@ -29,7 +29,6 @@ class StringConstants {
   static const String labelSecurityWarning = 'Security Warning!';
   static const String errorDeviceJailBroken = 'This app cannot be installed on jailbroken devices. Please install to another device.';
 
-
   static const String manufacturerSunmi = 'Sunmi';
 
   static const String success = 'Success';
@@ -55,5 +54,4 @@ class StringConstants {
   static const String errorLoadingDisplay = 'Error Loading Display';
   static const String errorLoadingCategory = 'Something wrong when loading category, please try again later';
   static const String errorPermissionNotGranted = 'Please allow permission by going to $appTitle\'s App info > Permissions > Allow all permissions then Re-open app';
-
 }

@@ -7,5 +7,4 @@ class NumberConstants {
   static const int httpBadRequest = 400;
 
   //endregion
-
 }

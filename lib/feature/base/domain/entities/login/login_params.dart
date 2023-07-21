@@ -1,4 +1,3 @@
-
 import 'package:equatable/equatable.dart';
 
 class LoginParam extends Equatable {
@@ -9,5 +8,4 @@ class LoginParam extends Equatable {
 
   @override
   List<Object?> get props => [email, password];
-
 }

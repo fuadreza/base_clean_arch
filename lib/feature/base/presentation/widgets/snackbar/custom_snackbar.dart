@@ -12,7 +12,6 @@ showCustomSnackbar({
   required Color color,
   SnackBarBehavior? behavior,
 }) {
-
   Widget displaySnackBarNormal() {
     return NormalText(
       text: text,

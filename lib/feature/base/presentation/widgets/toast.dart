@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:base_clean_arch/core/constants/color_constants.dart';
+import 'package:flutter/material.dart';
 
 class Toast {
   static void show(String msg, BuildContext context, {Duration? duration}) {
@@ -52,7 +52,7 @@ class Toast {
       ),
     );
     isVisible = true;
-    overlayState?.insert(_overlayEntry);
+    overlayState.insert(_overlayEntry);
   }
 
   static dismiss() async {
@@ -66,10 +66,9 @@ class Toast {
 
 class _ToastAnimatedWidget extends StatefulWidget {
   const _ToastAnimatedWidget({
-    Key? key,
     required this.duration,
     required this.child,
-  }) : super(key: key);
+  });
 
   final Widget child;
   final Duration duration;

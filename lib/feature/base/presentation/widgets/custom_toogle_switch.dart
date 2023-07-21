@@ -105,48 +105,48 @@ class ToggleSwitch extends StatefulWidget {
   /// Set a border only to the active toggle component
   List<Border?>? activeBorders;
 
-  ToggleSwitch(
-      {Key? key,
-      this.totalSwitches,
-      this.labels,
-      this.borderColor,
-      this.borderWidth,
-      this.dividerColor = Colors.white30,
-      this.activeBgColor,
-      this.activeFgColor,
-      this.inactiveBgColor,
-      this.inactiveFgColor,
-      this.onToggle,
-      this.cornerRadius = 8.0,
-      this.initialLabelIndex = 0,
-      this.minWidth = 72.0,
-      this.minHeight = 40.0,
-      this.changeOnTap = true,
-      this.icons,
-      this.activeBgColors,
-      this.customTextStyles,
-      this.customIcons,
-      this.customWidths,
-      this.customHeights,
-      this.animate = false,
-      this.animationDuration = 800,
-      this.curve = Curves.easeIn,
-      this.radiusStyle = false,
-      this.customRadius,
-      this.textDirectionRTL = false,
-      this.fontSize = 14.0,
-      this.iconSize = 17.0,
-      this.dividerMargin = 8.0,
-      this.doubleTapDisable = false,
-      this.isVertical = false,
-      this.activeBorders})
-      : super(key: key);
+  ToggleSwitch({
+    super.key,
+    this.totalSwitches,
+    this.labels,
+    this.borderColor,
+    this.borderWidth,
+    this.dividerColor = Colors.white30,
+    this.activeBgColor,
+    this.activeFgColor,
+    this.inactiveBgColor,
+    this.inactiveFgColor,
+    this.onToggle,
+    this.cornerRadius = 8.0,
+    this.initialLabelIndex = 0,
+    this.minWidth = 72.0,
+    this.minHeight = 40.0,
+    this.changeOnTap = true,
+    this.icons,
+    this.activeBgColors,
+    this.customTextStyles,
+    this.customIcons,
+    this.customWidths,
+    this.customHeights,
+    this.animate = false,
+    this.animationDuration = 800,
+    this.curve = Curves.easeIn,
+    this.radiusStyle = false,
+    this.customRadius,
+    this.textDirectionRTL = false,
+    this.fontSize = 14.0,
+    this.iconSize = 17.0,
+    this.dividerMargin = 8.0,
+    this.doubleTapDisable = false,
+    this.isVertical = false,
+    this.activeBorders,
+  });
 
   @override
-  _ToggleSwitchState createState() => _ToggleSwitchState();
+  ToggleSwitchState createState() => ToggleSwitchState();
 }
 
-class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClientMixin<ToggleSwitch> {
+class ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClientMixin<ToggleSwitch> {
   /// Active background color
   List<Color>? activeBgColor;
 
@@ -179,13 +179,13 @@ class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClie
     activeBgColor = widget.activeBgColor ?? [Theme.of(context).primaryColor];
 
     /// Assigns active foreground color to default accent text theme color if it's null/not provided.
-    activeFgColor = widget.activeFgColor ?? Theme.of(context).primaryTextTheme.bodyText1!.color;
+    activeFgColor = widget.activeFgColor ?? Theme.of(context).primaryTextTheme.bodyLarge!.color;
 
     /// Assigns inactive background color to default disabled theme color if it's null/not provided.
     inactiveBgColor = widget.inactiveBgColor ?? Theme.of(context).disabledColor;
 
     /// Assigns inactive foreground color to default text theme color if it's null/not provided.
-    inactiveFgColor = widget.inactiveFgColor ?? Theme.of(context).textTheme.bodyText1!.color;
+    inactiveFgColor = widget.inactiveFgColor ?? Theme.of(context).textTheme.bodyLarge!.color;
 
     /// Assigns transparent border color if it's null/not provided.
     borderColor = widget.borderColor ?? [Colors.transparent];
@@ -197,7 +197,7 @@ class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClie
     borderWidth = widget.borderWidth ?? (widget.borderColor == null ? 0.0 : 3.0);
 
     return ClipRRect(
-      borderRadius: widget.radiusStyle ? widget.customRadius : BorderRadius.circular(widget.cornerRadius),
+      borderRadius: widget.radiusStyle ? (widget.customRadius ?? BorderRadius.circular(0)) : BorderRadius.circular(widget.cornerRadius),
       child: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -247,7 +247,7 @@ class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClie
                 );
               } else {
                 /// Matches corner radius of active switch to that of border
-                var cornerRadius;
+                BorderRadius? cornerRadius;
                 if (index == 0 && !widget.isVertical) {
                   /// Checks if text direction is set right-to-left and
                   /// assigns corner radius accordingly.
@@ -320,7 +320,7 @@ class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClie
                 /// Assigns active border if available.
                 /// If only one active border is passed then we assume that we wanna
                 /// apply that active border to all the switches.
-                var activeBorder;
+                Border? activeBorder;
                 if (widget.activeBorders != null) {
                   activeBorder = widget.activeBorders!.length == 1 ? widget.activeBorders![0] : (widget.activeBorders!.length > index ~/ 2 && widget.activeBorders![index ~/ 2] != null ? widget.activeBorders![index ~/ 2]! : null);
                 }
@@ -331,8 +331,8 @@ class _ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClie
                   child: AnimatedContainer(
                     padding: const EdgeInsets.only(left: 10.0, right: 10.0),
                     constraints: BoxConstraints(
-                      maxWidth: widget.isVertical ? BoxConstraints().maxWidth : _calculateWidth(index ~/ 2, totalSwitches),
-                      maxHeight: widget.isVertical ? _calculateHeight(index ~/ 2, totalSwitches) : BoxConstraints().maxHeight,
+                      maxWidth: widget.isVertical ? const BoxConstraints().maxWidth : _calculateWidth(index ~/ 2, totalSwitches),
+                      maxHeight: widget.isVertical ? _calculateHeight(index ~/ 2, totalSwitches) : const BoxConstraints().maxHeight,
                     ),
                     alignment: Alignment.center,
                     decoration: BoxDecoration(
@@ -433,22 +433,22 @@ class RowToColumn extends StatelessWidget {
   final MainAxisSize? mainAxisSize;
   final CrossAxisAlignment? crossAxisAlignment;
 
-  const RowToColumn({Key? key, required this.children, required this.isVertical, this.isColumnToRow, this.mainAxisAlignment, this.mainAxisSize, this.crossAxisAlignment}) : super(key: key);
+  const RowToColumn({super.key, required this.children, required this.isVertical, this.isColumnToRow, this.mainAxisAlignment, this.mainAxisSize, this.crossAxisAlignment});
 
   @override
   Widget build(BuildContext context) {
     return ((isColumnToRow ?? false) ? isVertical : !isVertical)
         ? Row(
+            mainAxisAlignment: mainAxisAlignment ?? const Row().mainAxisAlignment,
+            mainAxisSize: mainAxisSize ?? const Row().mainAxisSize,
+            crossAxisAlignment: crossAxisAlignment ?? const Row().crossAxisAlignment,
             children: children,
-            mainAxisAlignment: mainAxisAlignment ?? Row().mainAxisAlignment,
-            mainAxisSize: mainAxisSize ?? Row().mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment ?? Row().crossAxisAlignment,
           )
         : Column(
+            mainAxisAlignment: mainAxisAlignment ?? const Column().mainAxisAlignment,
+            mainAxisSize: mainAxisSize ?? const Column().mainAxisSize,
+            crossAxisAlignment: crossAxisAlignment ?? const Column().crossAxisAlignment,
             children: children,
-            mainAxisAlignment: mainAxisAlignment ?? Column().mainAxisAlignment,
-            mainAxisSize: mainAxisSize ?? Column().mainAxisSize,
-            crossAxisAlignment: crossAxisAlignment ?? Column().crossAxisAlignment,
           );
   }
 }

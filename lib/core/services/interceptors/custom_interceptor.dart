@@ -32,7 +32,7 @@ class CustomInterceptors extends Interceptor {
   }
 
   @override
-  void onError(DioError err, ErrorInterceptorHandler handler) async {
+  void onError(DioException err, ErrorInterceptorHandler handler) async {
     if (!kReleaseMode) {
       log('🛑 ERROR > $err | ${err.message} | ${err.response}');
     }

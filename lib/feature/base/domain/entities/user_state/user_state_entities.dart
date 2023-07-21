@@ -1,4 +1,3 @@
-
 import 'package:hive/hive.dart';
 
 part 'user_state_entities.g.dart';

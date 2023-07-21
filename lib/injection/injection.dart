@@ -8,6 +8,7 @@ import 'package:base_clean_arch/feature/base/domain/repositories/user_repository
 import 'package:base_clean_arch/feature/base/domain/usecases/login_user_usecase.dart';
 import 'package:base_clean_arch/feature/base/presentation/modules/login/login_cubit.dart';
 import 'package:get_it/get_it.dart';
+
 final GetIt di = GetIt.instance;
 
 Future<void> init() async {

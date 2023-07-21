@@ -28,5 +28,4 @@ class ApiUrl {
   static String urlCityByProvinceId(String provinceId) => '$shipmentUrl/city/$provinceId';
 
   //#endregion
-
 }

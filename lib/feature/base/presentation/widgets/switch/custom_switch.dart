@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:base_clean_arch/core/constants/color_constants.dart';
+import 'package:flutter/cupertino.dart';
 
 class CustomSwitch extends StatefulWidget {
   final bool value;
@@ -7,11 +7,11 @@ class CustomSwitch extends StatefulWidget {
   final ValueChanged<bool>? onChanged;
 
   const CustomSwitch({
-    Key? key,
+    super.key,
     this.value = false,
     this.scale = 0.8,
     this.onChanged,
-  }) : super(key: key);
+  });
 
   @override
   State<CustomSwitch> createState() => _CustomSwitchState();

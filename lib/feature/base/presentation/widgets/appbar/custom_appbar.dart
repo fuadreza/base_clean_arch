@@ -1,6 +1,6 @@
+import 'package:base_clean_arch/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:base_clean_arch/core/constants/color_constants.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -9,12 +9,12 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   final Widget? leading;
 
   const CustomAppBar({
-    Key? key,
+    super.key,
     required this.title,
     this.iconData,
     this.trailing,
     this.leading,
-  }) : super(key: key);
+  });
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -51,5 +51,4 @@ class _CustomAppBarState extends State<CustomAppBar> {
       ],
     );
   }
-
 }

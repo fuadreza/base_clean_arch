@@ -1,5 +1,5 @@
-import 'package:flutter/material.dart';
 import 'package:base_clean_arch/core/constants/color_constants.dart';
+import 'package:flutter/material.dart';
 import 'package:shimmer/shimmer.dart';
 
 class CustomShimmer extends StatelessWidget {
@@ -8,11 +8,11 @@ class CustomShimmer extends StatelessWidget {
   final double radius;
 
   const CustomShimmer({
-    Key? key,
+    super.key,
     required this.height,
     required this.width,
     this.radius = 0.0,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {

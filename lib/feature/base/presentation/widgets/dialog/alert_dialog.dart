@@ -71,9 +71,9 @@ showAlertDialog(BuildContext context, Icon icons, String title, String content, 
                               child: CustomPrimaryButton(label: 'Ya', onPressed: onPositiveTap),
                             ),
                           ],
-                        )
+                        ),
                       ],
-                    )
+                    ),
                   ],
                 ),
               ),

@@ -1,4 +1,3 @@
-import 'package:base_clean_arch/core/abstract/usecase.dart';
 import 'package:base_clean_arch/core/exceptions/server_exception.dart';
 import 'package:base_clean_arch/feature/base/domain/entities/login/login_params.dart';
 import 'package:base_clean_arch/feature/base/domain/entities/login/login_state.dart';

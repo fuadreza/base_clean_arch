@@ -45,7 +45,7 @@ class NumberPaginator extends StatefulWidget {
 
   /// Creates an instance of [NumberPaginator].
   const NumberPaginator({
-    Key? key,
+    super.key,
     required this.numberPages,
     this.initialPage = 0,
     this.selectedPage = 0,
@@ -56,13 +56,13 @@ class NumberPaginator extends StatefulWidget {
     this.buttonUnselectedForegroundColor,
     this.buttonSelectedBackgroundColor,
     this.buttonUnselectedBackgroundColor,
-  }) : super(key: key);
+  });
 
   @override
-  _NumberPaginatorState createState() => _NumberPaginatorState();
+  NumberPaginatorState createState() => NumberPaginatorState();
 }
 
-class _NumberPaginatorState extends State<NumberPaginator> {
+class NumberPaginatorState extends State<NumberPaginator> {
   // int _currentPage = 0;
   int _availableSpots = 0;
 
@@ -80,15 +80,15 @@ class _NumberPaginatorState extends State<NumberPaginator> {
         children: [
           PaginatorButton(
             onPressed: widget.selectedPage > 0 ? _prev : null,
-            child: Icon(
-              Icons.chevron_left,
-              size: 20.sp,
-            ),
             shape: widget.buttonShape,
             selectedForegroundColor: widget.buttonSelectedForegroundColor,
             unSelectedforegroundColor: widget.buttonUnselectedForegroundColor,
             selectedBackgroundColor: widget.buttonSelectedBackgroundColor,
             unSelectedBackgroundColor: widget.buttonUnselectedBackgroundColor,
+            child: Icon(
+              Icons.chevron_left,
+              size: 20.sp,
+            ),
           ),
           Expanded(
             child: LayoutBuilder(
@@ -108,15 +108,15 @@ class _NumberPaginatorState extends State<NumberPaginator> {
           ),
           PaginatorButton(
             onPressed: widget.selectedPage < widget.numberPages - 1 ? _next : null,
-            child: Icon(
-              Icons.chevron_right,
-              size: 20.sp,
-            ),
             shape: widget.buttonShape,
             selectedForegroundColor: widget.buttonSelectedForegroundColor,
             unSelectedforegroundColor: widget.buttonUnselectedForegroundColor,
             selectedBackgroundColor: widget.buttonSelectedBackgroundColor,
             unSelectedBackgroundColor: widget.buttonUnselectedBackgroundColor,
+            child: Icon(
+              Icons.chevron_right,
+              size: 20.sp,
+            ),
           ),
         ],
       ),
@@ -169,15 +169,15 @@ class _NumberPaginatorState extends State<NumberPaginator> {
           widget.onPageChange?.call(index);
         },
         selected: _selected(index),
-        child: Text(
-          (index + 1).toString(),
-          style: TextStyle(fontSize: 14.sp),
-        ),
         // shape: widget.buttonShape,
         selectedForegroundColor: widget.buttonSelectedForegroundColor,
         unSelectedforegroundColor: widget.buttonUnselectedForegroundColor,
         selectedBackgroundColor: widget.buttonSelectedBackgroundColor,
         unSelectedBackgroundColor: widget.buttonUnselectedBackgroundColor,
+        child: Text(
+          (index + 1).toString(),
+          style: TextStyle(fontSize: 14.sp),
+        ),
       );
 
   Widget _buildDots() => AspectRatio(
@@ -231,7 +231,7 @@ class PaginatorButton extends StatelessWidget {
 
   /// Creates an instance of [PaginatorButton].
   const PaginatorButton({
-    Key? key,
+    super.key,
     required this.onPressed,
     required this.child,
     this.selected = false,
@@ -240,7 +240,7 @@ class PaginatorButton extends StatelessWidget {
     this.unSelectedBackgroundColor,
     this.selectedForegroundColor,
     this.unSelectedforegroundColor,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -251,9 +251,9 @@ class PaginatorButton extends StatelessWidget {
         child: TextButton(
           onPressed: onPressed,
           style: TextButton.styleFrom(
+            foregroundColor: _foregroundColor(context, selected),
             shape: shape ?? const CircleBorder(),
             backgroundColor: _backgroundColor(context, selected),
-            primary: _foregroundColor(context, selected),
           ),
           child: child,
         ),

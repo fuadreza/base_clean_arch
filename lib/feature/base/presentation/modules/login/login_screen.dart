@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:base_clean_arch/core/configs/themes/styles.dart';
 import 'package:base_clean_arch/core/constants/color_constants.dart';
 import 'package:base_clean_arch/core/utils/responsive.dart';
@@ -10,12 +12,13 @@ import 'package:base_clean_arch/feature/base/presentation/modules/login/login_cu
 import 'package:base_clean_arch/feature/base/presentation/widgets/card_background_tablet.dart';
 import 'package:base_clean_arch/feature/base/presentation/widgets/custom_button.dart';
 import 'package:base_clean_arch/feature/base/presentation/widgets/custom_text.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({super.key});
 
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -203,12 +206,12 @@ class _LoginScreenState extends State<LoginScreen> {
                     width: double.infinity,
                     child: TextButton(
                       style: TextButton.styleFrom(
+                        foregroundColor: Colors.white,
                         padding: EdgeInsets.symmetric(horizontal: 24.w, vertical: isMobile ? 12.h : 14.h),
                         backgroundColor: ColorConstants.primary,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(8.r),
                         ),
-                        primary: Colors.white,
                         elevation: 0.0,
                       ),
                       onPressed: null,
@@ -240,7 +243,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   );
                 }
               },
-            )
+            ),
           ],
         ),
       ),
@@ -305,7 +308,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 fontWeight: FontWeight.w600,
                 color: ColorConstants.primary,
               ),
-              onPressed: () => print('goto lupa password'),
+              onPressed: () {
+                if (kDebugMode) {
+                  log('goto lupa password');
+                }
+              },
             ),
           ],
         ),

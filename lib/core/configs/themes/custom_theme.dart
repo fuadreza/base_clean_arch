@@ -1,12 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:base_clean_arch/core/constants/color_constants.dart';
+import 'package:flutter/material.dart';
 
 class CustomTheme {
   final ThemeData light = ThemeData.light().copyWith(
     brightness: Brightness.light,
     primaryColor: ColorConstants.primary,
-    backgroundColor: ColorConstants.white,
     dividerColor: Colors.white54,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          background: ColorConstants.white,
+        ),
   );
 
   final ThemeData customLight = ThemeData(
@@ -18,14 +20,18 @@ class CustomTheme {
       color: ColorConstants.outlineColor,
     ),
     primaryColor: ColorConstants.primary,
-    backgroundColor: ColorConstants.white,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          background: ColorConstants.white,
+        ),
     dividerColor: Colors.white54,
   );
 
   final ThemeData dark = ThemeData.dark().copyWith(
     brightness: Brightness.dark,
     primaryColor: ColorConstants.primary,
-    backgroundColor: ColorConstants.dark,
+    colorScheme: ThemeData.light().colorScheme.copyWith(
+          background: ColorConstants.dark,
+        ),
     dividerColor: Colors.black12,
   );
 }

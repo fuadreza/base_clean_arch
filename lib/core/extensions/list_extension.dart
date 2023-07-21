@@ -1,4 +1,3 @@
-
 extension ListExtension<T> on List<T> {
   List<T> getPaged(int page, int pageSize) {
     final List<T> pagedResult = [];

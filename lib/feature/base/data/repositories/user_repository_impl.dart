@@ -33,5 +33,4 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   //#endregion
-
 }

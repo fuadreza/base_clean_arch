@@ -7,10 +7,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({
-    Key? key,
+    super.key,
     this.userStateEntities,
     this.locationName,
-  }) : super(key: key);
+  });
 
   final UserStateEntities? userStateEntities;
   final String? locationName;
@@ -23,11 +23,14 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiBlocProvider(providers: [
-      BlocProvider(
-        create: (_) => di<LoginCubit>(),
-      ),
-    ], child: getPage(userStateEntities, locationName));
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (_) => di<LoginCubit>(),
+        ),
+      ],
+      child: getPage(userStateEntities, locationName),
+    );
   }
 
   Widget getPage(UserStateEntities? userStateEntities, String? locationName) {
