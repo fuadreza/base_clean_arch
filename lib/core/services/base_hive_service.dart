@@ -10,39 +10,39 @@ abstract class BaseHiveService {
 
   //#region INSERT
 
-  Future<void> insert({required String boxName, required dynamic data}) async {
+  Future<void> insert<DataType>({required String boxName, required dynamic data, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       await box.add(data);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[insert] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<void> insertOne({required String boxName, required String keyName, required dynamic data}) async {
+  Future<void> insertOne({required String boxName, required String keyName, required dynamic data, closeAfter = true}) async {
     try {
       Box box = await openBox(boxName);
       await box.put(keyName, data);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[insertOne] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<void> insertAll<DataType>({required String boxName, required List<dynamic> listData}) async {
+  Future<void> insertAll<DataType>({required String boxName, required List<dynamic> listData, closeAfter = true}) async {
     try {
       Box box = await openBox<DataType>(boxName);
       await box.addAll(listData);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[insertAll] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
@@ -50,15 +50,15 @@ abstract class BaseHiveService {
 
   //#region UPDATE
 
-  Future<void> updateAt<DataType>({required String boxName, required int index, required dynamic data}) async {
+  Future<void> updateAt<DataType>({required String boxName, required int index, required dynamic data, closeAfter = true}) async {
     try {
       Box box = await openBox<DataType>(boxName);
       await box.putAt(index, data);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[updateAt] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
@@ -66,20 +66,20 @@ abstract class BaseHiveService {
 
   //#region GET
 
-  Future<List<dynamic>> getAll<DataType>({required String boxName}) async {
+  Future<List<dynamic>> getAll<DataType>({required String boxName, closeAfter = true}) async {
     try {
       Box box = await openBox<DataType>(boxName);
       dynamic results = box.values.toList();
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
       return results ?? [];
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[getAll] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<List<DataType>> getSome<DataType>({required String boxName, required int page, required int pageSize}) async {
+  Future<List<DataType>> getSome<DataType>({required String boxName, required int page, required int pageSize, closeAfter = true}) async {
     try {
       Box box = await openBox<DataType>(boxName);
       int length = box.length;
@@ -91,51 +91,51 @@ abstract class BaseHiveService {
         DataType result = box.getAt(i);
         tempList.add(result);
       }
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
       return tempList;
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[getSome] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<int> getDataLength<DataType>({required String boxName}) async {
+  Future<int> getDataLength<DataType>({required String boxName, closeAfter = true}) async {
     try {
       Box box = await openBox<DataType>(boxName);
       int length = box.length;
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
       return length;
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[getDataLength] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<dynamic> getFirst({required String boxName}) async {
+  Future<dynamic> getFirst<DataType>({required String boxName, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       dynamic results = box.getAt(0);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
       return results;
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[getFirst] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<dynamic> getOne({required String boxName, required String keyName}) async {
+  Future<dynamic> getOne<DataType>({required String boxName, required String keyName, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       dynamic result = await box.get(keyName);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
       return result;
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[getOne] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
@@ -143,39 +143,39 @@ abstract class BaseHiveService {
 
   //#region DELETE
 
-  Future<void> deleteAll({required String boxName}) async {
+  Future<void> deleteAll<DataType>({required String boxName, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       await box.clear();
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[deleteAll] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<void> deleteOne({required String boxName, required String keyName}) async {
+  Future<void> deleteOne<DataType>({required String boxName, required String keyName, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       await box.delete(keyName);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[deleteOne] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
-  Future<void> deleteAt({required String boxName, required int index}) async {
+  Future<void> deleteAt<DataType>({required String boxName, required int index, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       await box.deleteAt(index);
-      if (box.isOpen) {
+      if (box.isOpen && closeAfter) {
         await box.close();
       }
-    } catch (error) {
-      throw HiveError(error.toString());
+    } catch (error, s) {
+      throw HiveError('[deleteAt] BOX: $boxName | ${error.toString()} | $s');
     }
   }
 
@@ -193,8 +193,8 @@ abstract class BaseHiveService {
         final Box box = await Hive.openBox<DataType>(boxName);
         return box;
       }
-    } catch (error) {
-      throw HiveError('OPEN BOX ERROR | ${error.toString()}');
+    } catch (error, s) {
+      throw HiveError('OPEN BOX ERROR $boxName | ${error.toString()} | $s');
     }
   }
 
