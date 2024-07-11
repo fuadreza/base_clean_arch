@@ -24,6 +24,8 @@ class Environment {
 
   static String get appHostUrl => dotenv.env['API_URL'] ?? 'Host URL not configured';
 
+  static String get appHostTelegramUrl => dotenv.env['API_TELEGRAM_URL'] ?? 'Host URL not configured';
+
   static String get appSocketHostUrl => appHostUrl.replaceAll('https://', '');
 
   static String get appTitle => dotenv.env['APP_TITLE'] ?? 'Example App';

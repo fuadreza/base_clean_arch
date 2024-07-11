@@ -1,7 +1,6 @@
-import 'dart:developer';
+import 'dart:math';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 
 class CustomInterceptors extends Interceptor {
   CustomInterceptors();
@@ -11,31 +10,17 @@ class CustomInterceptors extends Interceptor {
     RequestOptions options,
     RequestInterceptorHandler handler,
   ) async {
-    // String? token = await hive.getToken();
-    options.headers['Accept'] = '*/*';
-
-    // if (token != null) options.headers['Authorization'] = token;
-
-    if (!kReleaseMode) {
-      log('🔵 REQUEST > ${options.method} | ${options.path} | ${options.queryParameters} | ${options.data} | ${options.headers}');
+    String? token;
+    if (Random().nextBool()) {
+      token = 'sampleToken';
     }
+    options.headers['Accept'] = '*/*';
+    options.headers['origin'] = 'https://example.com';
+    options.connectTimeout = const Duration(milliseconds: 120000);
+    options.receiveTimeout = const Duration(milliseconds: 120000);
+    options.sendTimeout = const Duration(milliseconds: 120000);
+    if (token != null) options.headers['Authorization'] = token;
 
     return super.onRequest(options, handler);
-  }
-
-  @override
-  void onResponse(Response response, ResponseInterceptorHandler handler) {
-    if (!kReleaseMode) {
-      log('🟠 RESPONSE > $response');
-    }
-    super.onResponse(response, handler);
-  }
-
-  @override
-  void onError(DioException err, ErrorInterceptorHandler handler) async {
-    if (!kReleaseMode) {
-      log('🛑 ERROR > $err | ${err.message} | ${err.response}');
-    }
-    super.onError(err, handler);
   }
 }
