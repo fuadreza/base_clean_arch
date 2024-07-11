@@ -7,6 +7,17 @@ class CustomDateUtils {
     return date;
   }
 
+  static String parseDateToSimpleDateTimeHour(String dateString) {
+    final DateTime tempDate = DateTime.parse(dateString).toLocal();
+    String date = DateFormat('dd MMM y HH:mm', 'id_ID').format(tempDate);
+    return date;
+  }
+
+  static String parseDateTimeToSimpleStringDateHour(DateTime dateTime) {
+    String date = DateFormat('dd MMM y HH:mm', 'id_ID').format(dateTime);
+    return date;
+  }
+
   static String parseDateToDetailDisplayDate(String dateString) {
     final DateTime tempDate = DateTime.parse(dateString).toLocal(); // iso8601
     String date = DateFormat('y-MM-dd HH:mm aaa', 'id_ID').format(tempDate);
@@ -23,6 +34,11 @@ class CustomDateUtils {
     return date;
   }
 
+  static String dateTimeToDetailDisplayDateUtc(DateTime dateTime) {
+    String date = DateFormat('y-MM-dd HH:mm:ss', 'id_ID').format(dateTime.toUtc());
+    return date;
+  }
+
   static String dateTimeToDetailDisplayDateHour(DateTime dateTime) {
     String date = DateFormat('y-MM-dd HH:mm', 'id_ID').format(dateTime.toLocal());
     return date;
@@ -31,6 +47,28 @@ class CustomDateUtils {
   static String dateTimeToSimpleDate(DateTime dateTime) {
     String date = DateFormat('y-MM-dd', 'id_ID').format(dateTime.toLocal());
     return date;
+  }
+
+  /// Formats a [DateTime] object into a string representation following the pattern 'y-MM-dd\'T\'HH:mm:ss.SSS\'Z\''.
+  ///
+  /// The [dateTime] parameter is the [DateTime] object that will be formatted.
+  /// The function first converts the [DateTime] object to UTC time before formatting it.
+  ///
+  /// Returns a [String] representing the formatted date and time in UTC.
+  ///
+  /// Example:
+  /// ```
+  /// DateTime now = DateTime.now();
+  /// String formatted = CustomDateUtils.dateTimeToUtcZoned(now);
+  /// print(formatted);  // Output: '2022-03-15T18:20:45.123Z'
+  /// ```
+  static String dateTimeToUtcZoned(DateTime dateTime) {
+    String date = DateFormat('y-MM-dd\'T\'HH:mm:ss.SSS\'Z\'', 'id_ID').format(dateTime.toUtc());
+    return date;
+  }
+
+  static String dateTimeISO8601(DateTime dateTime) {
+    return dateTime.toUtc().toIso8601String();
   }
 
   /// Generate current date

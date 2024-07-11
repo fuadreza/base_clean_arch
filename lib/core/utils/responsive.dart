@@ -26,15 +26,6 @@ class Responsive extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     bool isMobile = Responsive.isMobile(context);
-    // SystemChrome.setPreferredOrientations([
-    //   DeviceOrientation.landscapeRight,
-    //   DeviceOrientation.landscapeLeft,
-    // ]);
-    // ScreenUtil.init(
-    //   context,
-    //   designSize: const Size(1024, 768),
-    //   minTextAdapt: true,
-    // );
     if (isMobile) {
       SystemChrome.setPreferredOrientations([
         DeviceOrientation.portraitUp,
