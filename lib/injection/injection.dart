@@ -6,7 +6,7 @@ import 'package:base_clean_arch/feature/base/data/services/api_service.dart';
 import 'package:base_clean_arch/feature/base/data/services/hive_service.dart';
 import 'package:base_clean_arch/feature/base/domain/repositories/user_repository.dart';
 import 'package:base_clean_arch/feature/base/domain/usecases/login_user_usecase.dart';
-import 'package:base_clean_arch/feature/base/presentation/modules/login/login_cubit.dart';
+import 'package:base_clean_arch/feature/base/presentation/modules/login/cubits/login_cubit.dart';
 import 'package:get_it/get_it.dart';
 
 final GetIt di = GetIt.instance;

@@ -3,9 +3,9 @@ import 'package:base_clean_arch/core/utils/responsive.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../custom_text.dart';
+import '../texts/custom_text.dart';
 
-showCustomSnackbar({
+void showCustomSnackbar({
   required BuildContext context,
   required String text,
   Icon? icon,
@@ -13,7 +13,7 @@ showCustomSnackbar({
   SnackBarBehavior? behavior,
 }) {
   Widget displaySnackBarNormal() {
-    return NormalText(
+    return CustomText(
       text: text,
       fontSize: 14.sp,
       fontWeight: FontWeight.w400,
@@ -30,7 +30,7 @@ showCustomSnackbar({
           width: 8.w,
         ),
         Expanded(
-          child: NormalText(
+          child: CustomText(
             text: text,
             fontSize: 14.sp,
             fontWeight: FontWeight.w400,

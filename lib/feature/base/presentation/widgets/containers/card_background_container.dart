@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class CardBackgroundTablet extends StatelessWidget {
+class CardBackgroundContainer extends StatelessWidget {
+  const CardBackgroundContainer({super.key, required this.body, this.flexible = 1});
   final Widget? body;
   final int flexible;
-
-  const CardBackgroundTablet({super.key, required this.body, this.flexible = 1});
 
   @override
   Widget build(BuildContext context) {

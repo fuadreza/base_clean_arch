@@ -1,22 +1,22 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_entities.dart';
+part of 'login_entity.dart';
 
 // **************************************************************************
 // TypeAdapterGenerator
 // **************************************************************************
 
-class LoginEntitiesAdapter extends TypeAdapter<LoginEntities> {
+class LoginEntityAdapter extends TypeAdapter<LoginEntity> {
   @override
-  final int typeId = 99;
+  final int typeId = 2;
 
   @override
-  LoginEntities read(BinaryReader reader) {
+  LoginEntity read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return LoginEntities(
+    return LoginEntity(
       token: fields[0] as String?,
       passwordExpired: fields[1] as bool?,
       userName: fields[2] as String?,
@@ -42,7 +42,7 @@ class LoginEntitiesAdapter extends TypeAdapter<LoginEntities> {
   }
 
   @override
-  void write(BinaryWriter writer, LoginEntities obj) {
+  void write(BinaryWriter writer, LoginEntity obj) {
     writer
       ..writeByte(21)
       ..writeByte(0)
@@ -93,5 +93,5 @@ class LoginEntitiesAdapter extends TypeAdapter<LoginEntities> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LoginEntitiesAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) => identical(this, other) || other is LoginEntityAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
 }

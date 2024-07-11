@@ -2,10 +2,16 @@ import 'package:base_clean_arch/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../custom_button.dart';
-import '../custom_text.dart';
+import '../buttons/custom_button.dart';
+import '../texts/custom_text.dart';
 
-showAlertDialog(BuildContext context, Icon icons, String title, String content, Function() onPositiveTap) async {
+void showAlertDialog(
+  BuildContext context,
+  Icon icons,
+  String title,
+  String content,
+  Function() onPositiveTap,
+) async {
   showDialog(
     barrierDismissible: false,
     context: context,
@@ -30,7 +36,7 @@ showAlertDialog(BuildContext context, Icon icons, String title, String content, 
                         SizedBox(
                           height: 8.h,
                         ),
-                        NormalText(
+                        CustomText(
                           text: title,
                           fontSize: 16.sp,
                           fontWeight: FontWeight.w700,
@@ -39,7 +45,7 @@ showAlertDialog(BuildContext context, Icon icons, String title, String content, 
                         SizedBox(
                           height: 4.h,
                         ),
-                        NormalText(
+                        CustomText(
                           text: content,
                           fontSize: 12.sp,
                           maxLines: 3,

@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 
 class HorizontalSeparator extends StatelessWidget {
-  const HorizontalSeparator({super.key, this.height = 1, this.color = Colors.black});
+  const HorizontalSeparator({
+    super.key,
+    this.height = 1,
+    this.color = Colors.black,
+  });
+
   final double height;
   final Color color;
 

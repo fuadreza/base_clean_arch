@@ -3,8 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Responsive extends StatelessWidget {
-  final Widget? mobile;
-  final Widget? tablet;
   // final Widget? desktop;
 
   const Responsive({
@@ -13,6 +11,8 @@ class Responsive extends StatelessWidget {
     @required this.tablet,
     // @required this.desktop,
   });
+  final Widget? mobile;
+  final Widget? tablet;
 
   // This size work fine on my design, maybe you need some customization depends on your design
 

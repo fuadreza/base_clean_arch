@@ -6,7 +6,13 @@ class Toast {
     Color textColor = Colors.white;
     Color backgroundColor = ColorConstants.dark;
     dismiss();
-    Toast._createView(msg, context, backgroundColor, textColor, duration ?? const Duration(seconds: 2));
+    Toast._createView(
+      msg,
+      context,
+      backgroundColor,
+      textColor,
+      duration ?? const Duration(seconds: 2),
+    );
   }
 
   static late OverlayEntry _overlayEntry;
@@ -55,7 +61,7 @@ class Toast {
     overlayState.insert(_overlayEntry);
   }
 
-  static dismiss() async {
+  static Future<void> dismiss() async {
     if (!isVisible) {
       return;
     }

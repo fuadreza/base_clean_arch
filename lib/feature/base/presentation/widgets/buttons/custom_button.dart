@@ -13,17 +13,6 @@ enum ButtonType { small, large }
 enum ButtonStyles { filled, outlined }
 
 class CustomPrimaryButton extends StatelessWidget {
-  final ButtonType? type;
-  final ButtonStyles? style;
-  final String? label;
-  final Widget? icon;
-  final Function()? onPressed;
-  final bool? enable;
-  final bool? rounded;
-  final Color? outlineColor;
-  final Color? textColor;
-  final Widget? child;
-
   const CustomPrimaryButton({
     super.key,
     this.type = ButtonType.small,
@@ -37,6 +26,16 @@ class CustomPrimaryButton extends StatelessWidget {
     this.textColor,
     this.child,
   });
+  final ButtonType? type;
+  final ButtonStyles? style;
+  final String? label;
+  final Widget? icon;
+  final Function()? onPressed;
+  final bool? enable;
+  final bool? rounded;
+  final Color? outlineColor;
+  final Color? textColor;
+  final Widget? child;
 
   @override
   Widget build(BuildContext context) {

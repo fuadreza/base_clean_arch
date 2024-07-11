@@ -1,10 +1,60 @@
+import 'package:base_clean_arch/core/constants/hive_constants.dart';
 import 'package:equatable/equatable.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
-part 'login_entities.g.dart';
+part 'login_entity.g.dart';
 
-@HiveType(typeId: 99)
-class LoginEntities extends Equatable {
+@HiveType(typeId: HiveConstants.typeLoginEntity)
+class LoginEntity extends Equatable {
+  const LoginEntity({
+    this.token,
+    this.passwordExpired,
+    this.userName,
+    this.fullName,
+    this.subscription,
+    this.billingPhone,
+    this.phone,
+    this.roles,
+    this.restoreId,
+    this.acls,
+    this.currentLocation,
+    this.packageId,
+    this.trialLeft,
+    this.showGettingStarted,
+    this.showOnboardingWizard,
+    this.currentCompany,
+    this.companies,
+    this.isOwner,
+    this.posShowGettingStarted,
+    this.enableFulfillment,
+    this.isWmsMigrated,
+  });
+
+  factory LoginEntity.fromJson(Map<String, dynamic> json) {
+    return LoginEntity(
+      token: json['token'],
+      passwordExpired: json['passwordExpired'],
+      userName: json['userName'],
+      fullName: json['fullName'],
+      subscription: json['subscription'],
+      billingPhone: json['billingPhone'],
+      phone: json['phone'],
+      roles: json['roles'] != null ? (json['roles'] as List<dynamic>).map((i) => i).toList() : null,
+      restoreId: json['restoreId'],
+      acls: json['acls'] != null ? (json['acls'] as List<dynamic>).map((i) => i as int).toList() : null,
+      currentLocation: json['currentLocation'],
+      packageId: json['packageId'],
+      trialLeft: json['trialLeft'],
+      showGettingStarted: json['showGettingStarted'],
+      showOnboardingWizard: json['showOnboardingWizard'],
+      currentCompany: json['currentCompany'],
+      companies: json['companies'],
+      isOwner: json['isOwner'],
+      posShowGettingStarted: json['posShowGettingStarted'],
+      enableFulfillment: json['enableFulfillment'],
+      isWmsMigrated: json['isWmsMigrated'],
+    );
+  }
   @HiveField(0)
   final String? token;
   @HiveField(1)
@@ -47,56 +97,6 @@ class LoginEntities extends Equatable {
   final bool? enableFulfillment;
   @HiveField(20)
   final bool? isWmsMigrated;
-
-  const LoginEntities({
-    this.token,
-    this.passwordExpired,
-    this.userName,
-    this.fullName,
-    this.subscription,
-    this.billingPhone,
-    this.phone,
-    this.roles,
-    this.restoreId,
-    this.acls,
-    this.currentLocation,
-    this.packageId,
-    this.trialLeft,
-    this.showGettingStarted,
-    this.showOnboardingWizard,
-    this.currentCompany,
-    this.companies,
-    this.isOwner,
-    this.posShowGettingStarted,
-    this.enableFulfillment,
-    this.isWmsMigrated,
-  });
-
-  factory LoginEntities.fromJson(Map<String, dynamic> json) {
-    return LoginEntities(
-      token: json['token'],
-      passwordExpired: json['passwordExpired'],
-      userName: json['userName'],
-      fullName: json['fullName'],
-      subscription: json['subscription'],
-      billingPhone: json['billingPhone'],
-      phone: json['phone'],
-      roles: json['roles'] != null ? (json['roles'] as List<dynamic>).map((i) => i).toList() : null,
-      restoreId: json['restoreId'],
-      acls: json['acls'] != null ? (json['acls'] as List<dynamic>).map((i) => i as int).toList() : null,
-      currentLocation: json['currentLocation'],
-      packageId: json['packageId'],
-      trialLeft: json['trialLeft'],
-      showGettingStarted: json['showGettingStarted'],
-      showOnboardingWizard: json['showOnboardingWizard'],
-      currentCompany: json['currentCompany'],
-      companies: json['companies'],
-      isOwner: json['isOwner'],
-      posShowGettingStarted: json['posShowGettingStarted'],
-      enableFulfillment: json['enableFulfillment'],
-      isWmsMigrated: json['isWmsMigrated'],
-    );
-  }
 
   @override
   List<Object?> get props => [

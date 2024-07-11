@@ -1,6 +1,6 @@
-import 'package:base_clean_arch/feature/base/domain/entities/user_state/user_state_entities.dart';
+import 'package:base_clean_arch/core/constants/enums/user_state/user_state_enum.dart';
 import 'package:base_clean_arch/feature/base/presentation/modules/home/home_page.dart';
-import 'package:base_clean_arch/feature/base/presentation/modules/login/login_cubit.dart';
+import 'package:base_clean_arch/feature/base/presentation/modules/login/cubits/login_cubit.dart';
 import 'package:base_clean_arch/injection/injection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,16 +8,14 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class LoginPage extends StatelessWidget {
   const LoginPage({
     super.key,
-    this.userStateEntities,
-    this.locationName,
+    this.userStateEnum,
   });
 
-  final UserStateEntities? userStateEntities;
-  final String? locationName;
+  final UserStateEnum? userStateEnum;
 
-  static Route route({UserStateEntities? userStateEntities, String? locationName}) {
+  static Route route({UserStateEnum? userStateEnum}) {
     return MaterialPageRoute<void>(
-      builder: (_) => LoginPage(userStateEntities: userStateEntities, locationName: locationName),
+      builder: (_) => LoginPage(userStateEnum: userStateEnum),
     );
   }
 
@@ -29,17 +27,17 @@ class LoginPage extends StatelessWidget {
           create: (_) => di<LoginCubit>(),
         ),
       ],
-      child: getPage(userStateEntities, locationName),
+      child: getPage(userStateEnum),
     );
   }
 
-  Widget getPage(UserStateEntities? userStateEntities, String? locationName) {
-    switch (userStateEntities) {
-      case UserStateEntities.loggedIn:
+  Widget getPage(UserStateEnum? userStateEnum) {
+    switch (userStateEnum) {
+      case UserStateEnum.loggedIn:
         return const HomePage();
-      case UserStateEntities.priceChecker:
+      case UserStateEnum.priceChecker:
         return const HomePage();
-      case UserStateEntities.cashier:
+      case UserStateEnum.cashier:
         return const HomePage();
       default:
         return const HomePage();

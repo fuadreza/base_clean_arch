@@ -8,9 +8,8 @@ import 'package:base_clean_arch/core/services/interceptors/custom_interceptor.da
 import 'package:dio/dio.dart';
 
 class BaseApiClient {
-  final Dio _dio = Dio();
-
   BaseApiClient();
+  final Dio _dio = Dio();
 
   Future<String> get({required String pathUrl, Map<String, dynamic>? params, String? path}) async {
     _dio.options.headers['content-Type'] = StringConstants.httpApplicationJson;

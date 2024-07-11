@@ -3,16 +3,13 @@ import 'dart:io';
 
 import 'package:base_clean_arch/core/configs/env/environment.dart';
 import 'package:base_clean_arch/core/configs/themes/custom_theme.dart';
-import 'package:base_clean_arch/core/constants/string_constants.dart';
+import 'package:base_clean_arch/core/constants/enums/user_state/user_state_enum.dart';
 import 'package:base_clean_arch/core/services/package_info_service.dart';
 import 'package:base_clean_arch/feature/base/data/services/hive_service.dart';
-import 'package:base_clean_arch/feature/base/domain/entities/user_state/user_state_entities.dart';
 import 'package:base_clean_arch/feature/base/presentation/modules/login/login_page.dart';
 import 'package:base_clean_arch/injection/injection.dart' as injection;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
@@ -33,24 +30,18 @@ void main() async {
   HiveService hive = di<HiveService>();
 
   final bool isFirstTimeLaunch = await hive.getFirstTimeLaunch();
-  final UserStateEntities? userStateEntities = await hive.getUserState();
-  final String? locationName = await hive.getLocationName();
 
   if (Platform.isAndroid || Platform.isIOS) {
     if (!kReleaseMode) {
       runApp(
         AndroidApp(
           firstTimeLaunch: isFirstTimeLaunch,
-          userStateEntities: userStateEntities,
-          locationName: locationName,
         ),
       );
     } else {
       runApp(
         AndroidApp(
           firstTimeLaunch: isFirstTimeLaunch,
-          userStateEntities: userStateEntities,
-          locationName: locationName,
         ),
       );
     }
@@ -58,8 +49,6 @@ void main() async {
     runApp(
       AndroidApp(
         firstTimeLaunch: isFirstTimeLaunch,
-        userStateEntities: userStateEntities,
-        locationName: locationName,
       ),
     );
   }
@@ -75,16 +64,16 @@ Future<void> initConfig() async {
 }
 
 class AndroidApp extends StatelessWidget {
-  final bool? firstTimeLaunch;
-  final String? locationName;
-  final UserStateEntities? userStateEntities;
-
   const AndroidApp({
     super.key,
     this.firstTimeLaunch = true,
     this.locationName,
     this.userStateEntities,
   });
+
+  final bool? firstTimeLaunch;
+  final String? locationName;
+  final UserStateEnum? userStateEntities;
 
   @override
   Widget build(BuildContext context) {
@@ -109,93 +98,7 @@ class AndroidApp extends StatelessWidget {
           home: child,
         );
       },
-      child: firstTimeLaunch!
-          ? const LoginPage()
-          : LoginPage(
-              userStateEntities: userStateEntities,
-              locationName: locationName,
-            ),
+      child: firstTimeLaunch! ? const LoginPage() : const LoginPage(),
     );
-  }
-}
-
-class IosApp extends StatelessWidget {
-  const IosApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoApp(
-      title: Environment.appTitle,
-      home: const Scaffold(
-        body: Center(
-          child: Text(StringConstants.errorDeviceNotSupported),
-        ),
-      ),
-    );
-  }
-}
-
-class JailbreakApp extends StatelessWidget {
-  const JailbreakApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: StringConstants.appTitle,
-      home: Scaffold(
-        body: JailBreakPage(),
-      ),
-    );
-  }
-}
-
-class JailBreakPage extends StatelessWidget {
-  const JailBreakPage({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    Future.delayed(const Duration(milliseconds: 10), () {
-      showDialog(
-        context: context,
-        barrierDismissible: true,
-        builder: (context) {
-          return PopScope(
-            canPop: true,
-            child: Dialog(
-              child: Container(
-                padding: const EdgeInsets.all(20),
-                width: MediaQuery.of(context).size.width * 0.4,
-                child: const Column(
-                  mainAxisSize: MainAxisSize.min,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    Text(
-                      StringConstants.labelSecurityWarning,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 21,
-                        fontWeight: FontWeight.w700,
-                      ),
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Text(
-                      StringConstants.errorDeviceJailBroken,
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 18,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          );
-        },
-      ).then((value) => {SystemNavigator.pop()});
-    });
-    return Container();
   }
 }

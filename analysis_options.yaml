@@ -48,13 +48,16 @@ linter:
     # FUNCTIONS
     prefer_function_declarations_over_variables: true
     unnecessary_lambdas: true
+    always_declare_return_types: true
 
     # MEMBERS
     unnecessary_getters_setters: true
 
     # CONSTRUCTORS
-    prefer_initializing_formals: true
     empty_constructor_bodies: true
+    prefer_const_constructors: true
+    prefer_initializing_formals: true
+    sort_constructors_first: true
     unnecessary_new: true
 
     # CONTEXT

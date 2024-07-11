@@ -1,4 +1,3 @@
-import 'package:base_clean_arch/core/constants/enum_constans.dart';
 import 'package:intl/intl.dart';
 
 extension StringExtension on String? {
@@ -71,17 +70,6 @@ extension StringExtension on String? {
       } else {
         return this!.toLowerCase().contains(keyword.toLowerCase());
       }
-    }
-  }
-
-  ItemIdType convertToItemIdType() {
-    switch (this) {
-      case 'P':
-        return ItemIdType.product;
-      case 'C':
-        return ItemIdType.category;
-      default:
-        return ItemIdType.sku;
     }
   }
 }

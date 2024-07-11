@@ -1,13 +1,9 @@
 import 'package:base_clean_arch/core/constants/color_constants.dart';
+import 'package:base_clean_arch/feature/base/presentation/widgets/texts/custom_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  final String title;
-  final IconData? iconData;
-  final Widget? trailing;
-  final Widget? leading;
-
   const CustomAppBar({
     super.key,
     required this.title,
@@ -15,6 +11,11 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
     this.trailing,
     this.leading,
   });
+
+  final String title;
+  final IconData? iconData;
+  final Widget? trailing;
+  final Widget? leading;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -32,22 +33,22 @@ class _CustomAppBarState extends State<CustomAppBar> {
       iconTheme: const IconThemeData(
         color: ColorConstants.iconColor,
       ),
-      title: Text(
-        widget.title,
-        style: TextStyle(color: ColorConstants.black, fontWeight: FontWeight.w700, fontSize: 18.sp),
+      title: CustomText(
+        text: widget.title,
+        fontWeight: FontWeight.w700,
+        fontSize: 18.sp,
       ),
       leading: widget.leading,
       actions: [
-        widget.iconData != null
-            ? IconButton(
-                onPressed: () {},
-                icon: Icon(
-                  widget.iconData,
-                  color: ColorConstants.iconColor,
-                ),
-              )
-            : const SizedBox(),
-        widget.trailing ?? const SizedBox(),
+        if (widget.iconData != null)
+          IconButton(
+            onPressed: () {},
+            icon: Icon(
+              widget.iconData,
+              color: ColorConstants.iconColor,
+            ),
+          ),
+        widget.trailing ?? const SizedBox.shrink(),
       ],
     );
   }

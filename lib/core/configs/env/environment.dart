@@ -28,7 +28,7 @@ class Environment {
 
   static String get appTitle => dotenv.env['APP_TITLE'] ?? 'Example App';
 
-  initConfig() async {
+  Future<void> initConfig() async {
     await dotenv.load(fileName: Environment.fileName);
   }
 }

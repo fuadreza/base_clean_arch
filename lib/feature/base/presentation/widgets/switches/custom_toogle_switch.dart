@@ -6,6 +6,43 @@ typedef OnToggle = void Function(int? index);
 
 // ignore: must_be_immutable
 class ToggleSwitch extends StatefulWidget {
+  ToggleSwitch({
+    super.key,
+    this.totalSwitches,
+    this.labels,
+    this.borderColor,
+    this.borderWidth,
+    this.dividerColor = Colors.white30,
+    this.activeBgColor,
+    this.activeFgColor,
+    this.inactiveBgColor,
+    this.inactiveFgColor,
+    this.onToggle,
+    this.cornerRadius = 8.0,
+    this.initialLabelIndex = 0,
+    this.minWidth = 72.0,
+    this.minHeight = 40.0,
+    this.changeOnTap = true,
+    this.icons,
+    this.activeBgColors,
+    this.customTextStyles,
+    this.customIcons,
+    this.customWidths,
+    this.customHeights,
+    this.animate = false,
+    this.animationDuration = 800,
+    this.curve = Curves.easeIn,
+    this.radiusStyle = false,
+    this.customRadius,
+    this.textDirectionRTL = false,
+    this.fontSize = 14.0,
+    this.iconSize = 17.0,
+    this.dividerMargin = 8.0,
+    this.doubleTapDisable = false,
+    this.isVertical = false,
+    this.activeBorders,
+  });
+
   /// Border color
   final List<Color>? borderColor;
 
@@ -104,43 +141,6 @@ class ToggleSwitch extends StatefulWidget {
 
   /// Set a border only to the active toggle component
   List<Border?>? activeBorders;
-
-  ToggleSwitch({
-    super.key,
-    this.totalSwitches,
-    this.labels,
-    this.borderColor,
-    this.borderWidth,
-    this.dividerColor = Colors.white30,
-    this.activeBgColor,
-    this.activeFgColor,
-    this.inactiveBgColor,
-    this.inactiveFgColor,
-    this.onToggle,
-    this.cornerRadius = 8.0,
-    this.initialLabelIndex = 0,
-    this.minWidth = 72.0,
-    this.minHeight = 40.0,
-    this.changeOnTap = true,
-    this.icons,
-    this.activeBgColors,
-    this.customTextStyles,
-    this.customIcons,
-    this.customWidths,
-    this.customHeights,
-    this.animate = false,
-    this.animationDuration = 800,
-    this.curve = Curves.easeIn,
-    this.radiusStyle = false,
-    this.customRadius,
-    this.textDirectionRTL = false,
-    this.fontSize = 14.0,
-    this.iconSize = 17.0,
-    this.dividerMargin = 8.0,
-    this.doubleTapDisable = false,
-    this.isVertical = false,
-    this.activeBorders,
-  });
 
   @override
   ToggleSwitchState createState() => ToggleSwitchState();
@@ -425,6 +425,7 @@ class ToggleSwitchState extends State<ToggleSwitch> with AutomaticKeepAliveClien
 }
 
 class RowToColumn extends StatelessWidget {
+  const RowToColumn({super.key, required this.children, required this.isVertical, this.isColumnToRow, this.mainAxisAlignment, this.mainAxisSize, this.crossAxisAlignment});
   final List<Widget> children;
   final bool isVertical;
   final bool? isColumnToRow;
@@ -432,8 +433,6 @@ class RowToColumn extends StatelessWidget {
   final MainAxisAlignment? mainAxisAlignment;
   final MainAxisSize? mainAxisSize;
   final CrossAxisAlignment? crossAxisAlignment;
-
-  const RowToColumn({super.key, required this.children, required this.isVertical, this.isColumnToRow, this.mainAxisAlignment, this.mainAxisSize, this.crossAxisAlignment});
 
   @override
   Widget build(BuildContext context) {

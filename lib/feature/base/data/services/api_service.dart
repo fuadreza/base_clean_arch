@@ -3,9 +3,8 @@ import 'package:base_clean_arch/feature/base/data/services/api_url.dart';
 import 'package:base_clean_arch/feature/base/domain/entities/login/login_params.dart';
 
 class ApiService {
-  final BaseApiClient apiClient;
-
   ApiService({required this.apiClient});
+  final BaseApiClient apiClient;
 
   //#region FUNCTION
 
