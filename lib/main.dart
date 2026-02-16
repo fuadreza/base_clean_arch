@@ -3,7 +3,6 @@ import 'dart:developer';
 import 'dart:io';
 
 import 'package:base_clean_arch/app_main.dart';
-import 'package:base_clean_arch/core/configs/env/environment.dart';
 import 'package:base_clean_arch/core/services/package_info_service.dart';
 import 'package:base_clean_arch/feature/base/data/services/hive_service.dart';
 import 'package:base_clean_arch/injection/injection.dart' as injection;
@@ -61,7 +60,6 @@ void main() async {
 }
 
 Future<void> initConfig() async {
-  await environment.initConfig();
   await injection.init();
   final HiveService hive = di<HiveService>();
   await hive.init();

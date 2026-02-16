@@ -1,6 +1,3 @@
-import 'package:flutter/foundation.dart';
-import 'package:flutter_dotenv/flutter_dotenv.dart';
-
 final Environment environment = Environment.instance;
 
 class Environment {
@@ -10,27 +7,26 @@ class Environment {
 
   static Environment get instance => _instance;
 
-  static String get fileName => kReleaseMode ? '.env.example' : '.env.example';
+  //#region APP
+  static const String appHostUrl = String.fromEnvironment(
+    'API_URL',
+    defaultValue: 'Host URL not configured',
+  );
 
-  static String get name => dotenv.env['ENV_NAME'] ?? 'staging';
-
-  static String get projectName => dotenv.env['PROJECT_NAME'] ?? 'example';
-
-  static String get appVersion => dotenv.env['APP_VERSION'] ?? '0.0.1';
-
-  static String get release => 'v$appVersion';
-
-  static String get appHostPort => dotenv.env['API_PORT'] ?? '';
-
-  static String get appHostUrl => dotenv.env['API_URL'] ?? 'Host URL not configured';
-
-  static String get appHostTelegramUrl => dotenv.env['API_TELEGRAM_URL'] ?? 'Host URL not configured';
+  static const String appHostTelegramUrl = String.fromEnvironment(
+    'API_TELEGRAM_URL',
+    defaultValue: 'Host URL not configured',
+  );
 
   static String get appSocketHostUrl => appHostUrl.replaceAll('https://', '');
 
-  static String get appTitle => dotenv.env['APP_TITLE'] ?? 'Example App';
+  static const String appTitle = String.fromEnvironment(
+    'APP_TITLE',
+    defaultValue: 'Example App',
+  );
 
-  Future<void> initConfig() async {
-    await dotenv.load(fileName: Environment.fileName);
-  }
+  static const String appVersion = String.fromEnvironment(
+    'APP_VERSION',
+    defaultValue: '0.0.1',
+  );
 }

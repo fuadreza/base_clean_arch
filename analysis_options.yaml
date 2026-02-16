@@ -55,7 +55,6 @@ linter:
 
     # CONSTRUCTORS
     empty_constructor_bodies: true
-    prefer_const_constructors: true
     prefer_initializing_formals: true
     sort_constructors_first: true
     unnecessary_new: true

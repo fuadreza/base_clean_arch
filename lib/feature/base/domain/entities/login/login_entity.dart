@@ -1,6 +1,6 @@
 import 'package:base_clean_arch/core/constants/hive_constants.dart';
 import 'package:equatable/equatable.dart';
-import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hive_ce_flutter/hive_flutter.dart';
 
 part 'login_entity.g.dart';
 

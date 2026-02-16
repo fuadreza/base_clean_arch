@@ -32,7 +32,7 @@ class _CustomSwitchState extends State<CustomSwitch> {
       transformHitTests: true,
       child: CupertinoSwitch(
         value: _switchValue,
-        activeColor: ColorConstants.primary,
+        activeTrackColor: ColorConstants.primary,
         onChanged: (value) {
           setState(() {
             _switchValue = !_switchValue;

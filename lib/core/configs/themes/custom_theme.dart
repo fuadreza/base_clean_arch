@@ -7,7 +7,7 @@ class CustomTheme {
     primaryColor: ColorConstants.primary,
     dividerColor: Colors.white54,
     colorScheme: ThemeData.light().colorScheme.copyWith(
-          background: ColorConstants.white,
+          surface: ColorConstants.white,
         ),
   );
 
@@ -21,7 +21,7 @@ class CustomTheme {
     ),
     primaryColor: ColorConstants.primary,
     colorScheme: ThemeData.light().colorScheme.copyWith(
-          background: ColorConstants.white,
+          surface: ColorConstants.white,
         ),
     dividerColor: Colors.white54,
   );
@@ -30,7 +30,7 @@ class CustomTheme {
     brightness: Brightness.dark,
     primaryColor: ColorConstants.primary,
     colorScheme: ThemeData.light().colorScheme.copyWith(
-          background: ColorConstants.dark,
+          surface: ColorConstants.dark,
         ),
     dividerColor: Colors.black12,
   );
