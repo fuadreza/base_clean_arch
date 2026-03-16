@@ -29,4 +29,12 @@ class Environment {
     'APP_VERSION',
     defaultValue: '0.0.1',
   );
+
+  //#endregion APP
+
+  //#region BLOC
+
+  static const bool debugBloc = bool.fromEnvironment('DEBUG_BLOC', defaultValue: false);
+
+  //#endregion BLOC
 }

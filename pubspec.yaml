@@ -9,37 +9,47 @@ environment:
   sdk: '>=3.3.0 <4.0.0'
 
 dependencies:
+  ansicolor: 2.0.3
   collection: 1.19.1
   connectivity_plus: 6.1.4
   currency_text_input_formatter: 2.2.9
+  device_info_plus: ^12.3.0
   dio: 5.9.1
   equatable: 2.0.8
   flutter:
     sdk: flutter
   flutter_bloc: 9.1.1
+  flutter_local_notifications: ^20.1.0
   flutter_screenutil: 5.9.3
+  flutter_secure_storage: ^10.0.0
   flutter_svg: 2.2.3
   get_it: 9.2.0
   hive_ce: 2.19.3
   hive_ce_flutter: 2.3.4
+  image: ^4.8.0
+  image_picker: ^1.2.1
   intl: 0.20.2
+  json_annotation: 4.9.0
+  logger: 2.6.2
   meta_validator: 0.0.2
   package_info_plus: 9.0.0
+  path_provider: ^2.1.5
   permission_handler: 12.0.1
+  rxdart: ^0.28.0
+  sentry_dio: 9.14.0
+  sentry_flutter: 9.14.0
   shimmer: 3.0.0
   talker_dio_logger: 5.1.13
+  video_thumbnail: ^0.5.6
 
-  hive: any
-  flutter_dotenv: any
-  ansicolor: any
-  hive_flutter: any
 dev_dependencies:
   build_runner: ^2.11.1
   flutter_lints: 6.0.0
   lints: 6.0.0
   flutter_test:
     sdk: flutter
-  hive_ce_generator: ^1.11.1
+  hive_ce_generator: 1.10.0
+  json_serializable: 6.11.1
 
 flutter:
 

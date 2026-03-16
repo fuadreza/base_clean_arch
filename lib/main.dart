@@ -6,11 +6,15 @@ import 'package:base_clean_arch/app_main.dart';
 import 'package:base_clean_arch/core/services/package_info_service.dart';
 import 'package:base_clean_arch/feature/base/data/services/hive_service.dart';
 import 'package:base_clean_arch/injection/injection.dart' as injection;
+import 'package:device_info_plus/device_info_plus.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/date_symbol_data_local.dart';
 
+import 'core/services/device_info_service.dart';
 import 'injection/injection.dart';
+
+final DeviceInfoPlugin deviceInfo = DeviceInfoPlugin();
 
 class MyHttpOverrides extends HttpOverrides {
   @override
@@ -63,6 +67,8 @@ Future<void> initConfig() async {
   await injection.init();
   final HiveService hive = di<HiveService>();
   await hive.init();
+  await hive.init();
   await packageInfoService.init();
+  await deviceInfoService.init();
   initializeDateFormatting('id_ID', null);
 }

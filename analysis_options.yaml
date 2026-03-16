@@ -1,5 +1,3 @@
-# The following line activates a set of recommended lints for Flutter apps,
-# packages, and plugins designed to encourage good coding practices.
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
@@ -48,15 +46,13 @@ linter:
     # FUNCTIONS
     prefer_function_declarations_over_variables: true
     unnecessary_lambdas: true
-    always_declare_return_types: true
 
     # MEMBERS
     unnecessary_getters_setters: true
 
     # CONSTRUCTORS
-    empty_constructor_bodies: true
     prefer_initializing_formals: true
-    sort_constructors_first: true
+    empty_constructor_bodies: true
     unnecessary_new: true
 
     # CONTEXT

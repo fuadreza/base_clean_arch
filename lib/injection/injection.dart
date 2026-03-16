@@ -1,4 +1,5 @@
-import 'package:base_clean_arch/core/services/base_api_client.dart';
+import 'package:base_clean_arch/core/services/base_api_service.dart';
+import 'package:base_clean_arch/core/services/interceptors/custom_interceptor.dart';
 import 'package:base_clean_arch/feature/base/data/datasources/local_data_source.dart';
 import 'package:base_clean_arch/feature/base/data/datasources/remote_data_source.dart';
 import 'package:base_clean_arch/feature/base/data/repositories/user_repository_impl.dart';
@@ -63,7 +64,7 @@ Future<void> init() async {
 
   di.registerLazySingleton<ApiService>(
     () => ApiService(
-      apiClient: di(),
+      apiService: di(),
     ),
   );
 
@@ -75,8 +76,13 @@ Future<void> init() async {
 
   //#region CORES
 
-  di.registerLazySingleton<BaseApiClient>(
-    BaseApiClient.new,
+  di.registerLazySingleton<BaseApiService>(
+    () => BaseApiService(
+      BaseApiService.options,
+      interceptors: [
+        const CustomInterceptors(),
+      ],
+    ),
   );
 
   //#endregion

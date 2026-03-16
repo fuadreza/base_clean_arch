@@ -20,6 +20,17 @@ extension ListExtension<T> on List<T> {
   int getTotalPage(int pageSize) {
     int dataLength = length;
     int pageCount = (dataLength / pageSize).ceil();
+    if (pageCount == 0) {
+      pageCount = 1;
+    }
     return pageCount;
+  }
+
+  bool containsEqualsIgnoreCase(String text) {
+    for (T item in this) {
+      if (T != String) return false;
+      if ((item as String).toLowerCase() == text.toLowerCase()) return true;
+    }
+    return false;
   }
 }

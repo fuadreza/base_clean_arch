@@ -22,9 +22,9 @@ abstract class BaseHiveService {
     }
   }
 
-  Future<void> insertOne({required String boxName, required String keyName, required dynamic data, closeAfter = true}) async {
+  Future<void> insertOne<DataType>({required String boxName, required dynamic keyName, required dynamic data, closeAfter = true}) async {
     try {
-      Box box = await openBox(boxName);
+      Box box = await openBox<DataType>(boxName);
       await box.put(keyName, data);
       if (box.isOpen && closeAfter) {
         await box.close();
@@ -198,5 +198,5 @@ abstract class BaseHiveService {
     }
   }
 
-  //#endregion
+//#endregion
 }

@@ -1,14 +1,15 @@
-import 'package:equatable/equatable.dart';
-
-abstract class UseCase<Params, Type> {
-  Future<Type> invoke(final Params params);
+abstract class UseCase<Params, T> {
+  Future<T> invoke(final Params params);
 }
 
-abstract class StreamUseCase<Params, Type> {
-  Type invoke(final Params params);
+abstract class StreamUseCase<Params, T> {
+  T invoke(final Params params);
 }
 
-class NoParams extends Equatable {
-  @override
-  List<Object?> get props => [];
+abstract class NoParamStreamUseCase<T> {
+  T invoke();
+}
+
+abstract class NoParamsUseCase<T> {
+  Future<T> invoke();
 }

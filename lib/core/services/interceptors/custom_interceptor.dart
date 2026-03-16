@@ -3,7 +3,7 @@ import 'dart:math';
 import 'package:dio/dio.dart';
 
 class CustomInterceptors extends Interceptor {
-  CustomInterceptors();
+  const CustomInterceptors();
 
   @override
   void onRequest(
