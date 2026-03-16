@@ -1,8 +1,10 @@
 import 'package:base_clean_arch/core/configs/env/environment.dart';
+import 'package:base_clean_arch/core/configs/routes/routes.dart';
 import 'package:base_clean_arch/core/configs/themes/custom_theme.dart';
 import 'package:base_clean_arch/core/constants/enums/user_state/user_state_enum.dart';
 import 'package:base_clean_arch/core/utils/responsive.dart';
 import 'package:base_clean_arch/feature/base/presentation/modules/login/login_page.dart';
+import 'package:base_clean_arch/l10n/arb/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -29,8 +31,12 @@ class AppMain extends StatelessWidget {
           title: Environment.appTitle,
           darkTheme: CustomTheme().customLight,
           theme: CustomTheme().customLight,
-          locale: const Locale('id', 'ID'),
           debugShowCheckedModeBanner: false,
+          locale: const Locale('id', 'ID'),
+          localizationsDelegates: AppLocalizations.localizationsDelegates,
+          supportedLocales: AppLocalizations.supportedLocales,
+          onGenerateRoute: AppNavigator.onGenerateRoute,
+          navigatorKey: AppNavigator.navigatorKey,
           builder: (context, widget) {
             if (widget == null) return const SizedBox.shrink();
             return widget;

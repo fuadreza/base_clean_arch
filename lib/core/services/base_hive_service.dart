@@ -1,12 +1,11 @@
+import 'package:base_clean_arch/hive_registrar.g.dart';
 import 'package:hive_ce_flutter/hive_flutter.dart';
 
 abstract class BaseHiveService {
   Future<void> init() async {
     await Hive.initFlutter();
-    registerAdapter();
+    Hive.registerAdapters();
   }
-
-  void registerAdapter();
 
   //#region INSERT
 

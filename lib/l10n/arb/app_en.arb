@@ -1,0 +1,287 @@
+{
+  "active": "Active",
+  "activeCashierConfirmation": "Do you want to finish the active cashier first or continue?",
+  "accessCashierConfirmationTitle": "Cashier Access Confirmation",
+  "accessNewCashierWarning": "You are trying to access the cashier from a new device. To continue, you need an access code from your Admin or Manager.",
+  "activate": "Activate",
+  "all": "All",
+  "allowManualSearch": "Allow Manual Search by Input",
+  "allowManualSearchInstruction": "Activate with Store Manager PIN to allow cashiers to manually type in products (valid until the cashier session is closed).",
+  "and": "and",
+  "apply": "Apply",
+  "applyDiscount": "Apply Discount",
+  "appliedDiscount": "Applied Discount",
+  "authorization": "Authorization",
+  "authorizeHppPermissionTitle": "Permission to change price below HPP",
+  "available": "Available",
+  "availablePoints": "Available Points",
+  "back": "Back",
+  "balance": "Balance",
+  "becauseBenefitX": "because of {benefitX}",
+  "@becauseBenefitX": {
+    "description": "Label for displaying reason of benefit",
+    "placeholders": {
+      "benefitX": {
+        "type": "String",
+        "example": "Loyalty Program"
+      }
+    }
+  },
+  "birthDay": "Birthday",
+  "cancel": "Cancel",
+  "cashierOpening": "Opening cashier",
+  "change": "Change",
+  "close": "Close",
+  "confirmAccess": "Confirm Access",
+  "continueLabel": "Continue",
+  "currentBenefit": "Current Benefit",
+  "customer": "Customer",
+  "customerAlreadyMaxTier": "Customer is already at the highest tier",
+  "customerName": "Customer Name",
+  "customerPhone": "Customer Phone",
+  "customerProfile": "Customer Profile",
+  "daftarRegister": "Register List",
+  "deactivate": "Deactivate",
+  "delete": "Delete",
+  "deviceCodeEmpty": "Please enter the Device Code",
+  "deviceCodeMinLength": "Device code must be at least 6 digits",
+  "discountFromPoints": "Discount from Points",
+  "discountFromX": "Discount from ${pointLabel}",
+  "@discountFromX": {
+    "description": "Label for displaying discount from specific points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "dontHaveAccount": "Don't have account yet?",
+  "email": "Email",
+  "errorFetchListRegister": "An error occurred while fetching the outlet list",
+  "estimatedSave": "Estimated Save",
+  "expiredOnX": "expired on {dateX}",
+  "@expiredOnX": {
+    "description": "Label for displaying expiration date",
+    "placeholders": {
+      "dateX": {
+        "type": "String",
+        "example": "31 Dec 2024"
+      }
+    }
+  },
+  "forgetPassword": "Forgot Password ?",
+  "help": "Help",
+  "initialCash": "Initial Cash",
+  "inputCashDenomination": "Input cash denomination",
+  "inputCashNominal": "Input cash nominal",
+  "inputCode": "Input Code",
+  "inputEmail": "Input email",
+  "inputPassword": "Input password",
+  "inputPointAmount": "Input point amount",
+  "inputXPointAmount": "Input {pointLabel} amount",
+  "@inputXPointAmount": {
+    "description": "Label for inputting specific point amount",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "itemCode": "Item Code",
+  "itemName": "Item Name",
+  "lastActivity": "Last Activity",
+  "login": "Login",
+  "loginInstruction": "Enter your email and password to log in to Jubelio POS",
+  "loginToJubelio": "Login to Jubelio account",
+  "loyaltyAndTier": "Loyalty Programs & Tier",
+  "maxXRedeemablePointIs": "Maximum {pointLabel} redeemable is:",
+  "maxXRedeemablePointIsY": "Maximum {pointLabel} redeemable is: {pointY}",
+  "@maxXRedeemablePointIsY": {
+    "description": "Label for displaying maximum redeemable points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      },
+      "pointY": {
+        "type": "String",
+        "example": "500"
+      }
+    }
+  },
+  "memberSince": "Member since",
+  "needXPointToY": "Need {pointX} {pointLabel} to {tierY}",
+  "@needXPointToY": {
+    "description": "Label for displaying points needed to reach the next tier",
+    "placeholders": {
+      "pointX": {
+        "type": "String",
+        "example": "100"
+      },
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      },
+      "tierY": {
+        "type": "String",
+        "example": "Silver"
+      }
+    }
+  },
+  "neverOpened": "Never opened",
+  "no": "No",
+  "noBenefitAvailable": "No benefit available",
+  "noInternetConnection": "No internet connection",
+  "noCashierYet": "No Cashier Yet",
+  "noCashierAvailableAtTheLocation": "No cashier available at this location",
+  "ok": "Ok",
+  "onboardingDesc1": "BOPIS (Buy Online Pickup in Store) online purchases that can be picked up directly at the store. BORIS (Buy Online Return in Store) returns directly at the store.",
+  "onboardingDesc2": "Promotion and discount features for one item or transaction. And with the price book you can sell products at different prices.",
+  "onboardingDesc3": "Return of goods or cancellation of previous purchases. Returns have the option for a cash refund or deposited in store credit.",
+  "onboardingTitle1": "BOPIS and BORIS",
+  "onboardingTitle2": "Promotion, Slash Price, and Pricebooks",
+  "onboardingTitle3": "Retur and Refund",
+  "openCashier": "Open Cashier",
+  "outletNotIntegrated": "Jubelio POS is not integrated yet",
+  "outletNotFound": "Outlet not found",
+  "password": "Password",
+  "pickDate": "Pick Date",
+  "phoneNumberShort": "Phone",
+  "pleaseCallManagerToGetAccessCode": "Please contact your manager account to provide sales access.",
+  "point": "Point",
+  "pointExpired": "{pointLabel} Will Expired",
+  "@pointExpired": {
+    "description": "Label for displaying expired points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "pointNow": "{pointLabel} Now",
+  "@pointNow": {
+    "description": "Label for displaying current points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "pointXAvailable": "{pointLabel} available",
+  "@pointXAvailable": {
+    "description": "Label for displaying available points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "printLastClosureReceipt": "Print Cashier Closing Receipt",
+  "redeem": "Redeem",
+  "redeemAll": "Redeem All",
+  "register": "Register",
+  "registerLocation": "Register Location",
+  "reset": "Reset",
+  "returnNumberShort": "Return No.",
+  "save": "Save",
+  "scan": "Scan",
+  "scanBarcode": "Scan Barcode",
+  "search": "Search",
+  "searchItem": "Search Item",
+  "searchLocation": "Search Location",
+  "searchResultNotFound": "No results found",
+  "selectBirthday": "Select Birthday",
+  "selectCustomer": "Select Customer",
+  "setAsPriceChecker": "Set as Price Checker",
+  "stillActiveCashier": "There is still an active Cashier.",
+  "thisTransactionAutomaticallyGet": "This transaction will automatically get",
+  "tierProgress": "Tier Progress",
+  "totalConverted": "Total Converted",
+  "transaction": "Transaction",
+  "transactionNumberShort": "Transaction No.",
+  "transactionSearch": "Search Transaction",
+  "transactionNotPaid": "Not Paid",
+  "transactionNotSync": "Not Synced",
+  "transactionQRISNotPaid": "Not Paid (QRIS)",
+  "turnOnInternetToContinue": "Please enable your internet connection to continue",
+  "unlimited": "Unlimited",
+  "useAll": "Use All",
+  "useLoyaltyPoints": "Use Loyalty Points",
+  "useLoyaltyXPointY": "Use {pointLabel} {loyaltyName}",
+  "@useLoyaltyXPointY": {
+    "description": "Label for displaying loyalty points to be used",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      },
+      "loyaltyName": {
+        "type": "String",
+        "example": "Gold Points"
+      }
+    }
+  },
+  "warning": "Warning",
+  "warningPriceBelowHpp": "The selling price must not be lower than the HPP according to store settings.",
+  "warningPriceBelowHppConfirmation": "The selling price is below the HPP. Are you sure you want to continue?",
+  "welcome": "Welcome",
+  "willExpiredOnX": "will expired on {dateX}",
+  "@willExpiredOnX": {
+    "description": "Label for displaying points that will expire",
+    "placeholders": {
+      "dateX": {
+        "type": "String",
+        "example": "31 Dec 2024"
+      }
+    }
+  },
+  "xAvailable": "{name} Available",
+  "@xAvailable": {
+    "description": "Label for displaying available points",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "1000 or Points"
+      }
+    }
+  },
+  "xYAvailableZ": "{point} {pointName} available, 1 {pointName} = {pointZ}",
+  "@xYAvailableZ": {
+    "description": "Label for displaying available points conversion",
+    "placeholders": {
+      "point": {
+        "type": "int",
+        "example": "1000"
+      },
+      "pointName": {
+        "type": "String",
+        "example": "Points"
+      },
+      "pointZ": {
+        "type": "String",
+        "example": "$10"
+      }
+    }
+  },
+  "xToY": "{X} to {Y}",
+  "@xToY": {
+    "description": "Label for displaying X to Y message",
+    "placeholders": {
+      "X": {
+        "type": "String",
+        "example": "1000 Points"
+      },
+      "Y": {
+        "type": "String",
+        "example": "Bronze Tier"
+      }
+    }
+  },
+  "yes": "Yes",
+  "yesContinue": "Yes, Continue"
+}

@@ -1,0 +1,287 @@
+{
+  "active": "Aktif",
+  "activeCashierConfirmation": "Apakah ingin menyelesaikan terlebih dahulu atau tetap melanjutkan?",
+  "accessCashierConfirmationTitle": "Konfirmasi Akses Mesin Kasir",
+  "accessNewCashierWarning": "Saat ini Anda mencoba mengakses mesin kasir dari perangkat baru. Untuk melanjutkan, Anda memerlukan kode akses dari Admin atau Manager Anda.",
+  "activate": "Aktifkan",
+  "all": "Semua",
+  "allowManualSearch": "Izinkan Pencarian Manual dengan Ketik",
+  "allowManualSearchInstruction": "Aktifkan dengan PIN Store Manager untuk membolehkan kasir mengetik produk secara manual (berlaku sampai sesi kasir ditutup).",
+  "and": "dan",
+  "apply": "Terapkan",
+  "applyDiscount": "Terapkan Diskon",
+  "appliedDiscount": "Diskon Terpasang",
+  "authorization": "Otorisasi",
+  "authorizeHppPermissionTitle": "Izin ubah harga dibawah HPP",
+  "available": "Tersedia",
+  "availablePoints": "Poin tersedia",
+  "back": "Kembali",
+  "balance": "Saldo",
+  "becauseBenefitX": "karena benefit {benefitX}",
+  "@becauseBenefitX": {
+    "description": "Label untuk menampilkan alasan benefit",
+    "placeholders": {
+      "benefitX": {
+        "type": "String",
+        "example": "Loyalty Program"
+      }
+    }
+  },
+  "birthDay": "Tanggal Lahir",
+  "cancel": "Batal",
+  "cashierOpening": "Membuka kasir",
+  "change": "Ubah",
+  "close": "Tutup",
+  "confirmAccess": "Konfirmasi Akses",
+  "continueLabel": "Lanjutkan",
+  "currentBenefit": "Benefit Saat Ini",
+  "customer": "Pelanggan",
+  "customerAlreadyMaxTier": "Pelanggan sudah menjadi tier tertinggi",
+  "customerName": "Nama Pelanggan",
+  "customerPhone": "No. Telepon Pelanggan",
+  "customerProfile": "Profil Pelanggan",
+  "daftarRegister": "Daftar Register",
+  "deactivate": "Nonaktifkan",
+  "delete": "Hapus",
+  "deviceCodeEmpty": "Harap masukkan Kode Perangkat",
+  "deviceCodeMinLength": "Minimal kode perangkat 6 digit",
+  "discountFromPoints": "Diskon dari Poin",
+  "discountFromX": "Diskon dari ${pointLabel}",
+  "@discountFromX": {
+    "description": "Label for displaying discount from specific points",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "dontHaveAccount": "Belum punya akun?",
+  "email": "Email",
+  "errorFetchListRegister": "Terjadi kesalahan saat pengambilan daftar outlet",
+  "estimatedSave": "Estimasi Hemat",
+  "expiredOnX": "kedaluwarsa pada {dateX}",
+  "@expiredOnX": {
+    "description": "Label untuk menampilkan tanggal kedaluwarsa",
+    "placeholders": {
+      "dateX": {
+        "type": "String",
+        "example": "31 Dec 2024"
+      }
+    }
+  },
+  "forgetPassword": "Lupa password ?",
+  "help": "Bantuan",
+  "initialCash": "Kas Awal",
+  "inputCashDenomination": "Masukkan pecahan uang tunai",
+  "inputCashNominal": "Masukkan nominal uang",
+  "inputCode": "Masukkan Kode",
+  "inputEmail": "Masukkan email",
+  "inputPassword": "Masukkan password",
+  "inputPointAmount": "Masukkan jumlah poin",
+  "inputXPointAmount": "Masukkan jumlah {pointLabel}",
+  "@inputXPointAmount": {
+    "description": "Label untuk memasukkan jumlah poin tertentu",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "itemCode": "Kode Barang",
+  "itemName": "Nama Barang",
+  "lastActivity": "Aktivitas Terakhir",
+  "login": "Masuk",
+  "loginInstruction": "Masukkan email dan password untuk masuk ke Jubelio POS",
+  "loginToJubelio": "Masuk ke akun Jubelio",
+  "loyaltyAndTier": "Loyalty Programs & Tier",
+  "maxXRedeemablePointIs": "Maksimum Penggunaan {pointLabel}:",
+  "maxXRedeemablePointIsY": "Maksimum Penggunaan {pointLabel}: {pointY}",
+  "@maxXRedeemablePointIsY": {
+    "description": "Label untuk menampilkan poin maksimal yang dapat digunakan",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      },
+      "pointY": {
+        "type": "String",
+        "example": "1000"
+      }
+    }
+  },
+  "memberSince": "Member Sejak",
+  "needXPointToY": "Butuh {pointX} {pointLabel} lagi untuk ke {tierY}",
+  "@needXPointToY": {
+    "description": "Label untuk menampilkan poin yang dibutuhkan untuk mencapai tier berikutnya",
+    "placeholders": {
+      "pointX": {
+        "type": "String",
+        "example": "100"
+      },
+      "pointLabel": {
+        "type": "String",
+        "example": "Poin"
+      },
+      "tierY": {
+        "type": "String",
+        "example": "Silver"
+      }
+    }
+  },
+  "neverOpened": "Belum pernah dibuka",
+  "no": "Tidak",
+  "noBenefitAvailable": "Tidak ada benefit tersedia",
+  "noInternetConnection": "Tidak ada koneksi internet",
+  "noCashierYet": "Belum Ada Kasir",
+  "noCashierAvailableAtTheLocation": "Belum ada kasir yang tersedia di lokasi ini",
+  "ok": "Oke",
+  "onboardingDesc1": "BOPIS (Buy Online Pickup in Store) pembelian online yang dapat diambil langsung ke toko. BORIS (Buy Online Return in Store) retur langsung di toko.",
+  "onboardingDesc2": "Fitur promosi dan diskon untuk salah satu item atau transaksi. Serta dengan buku harga anda bisa menjual produk dengan harga yang berbeda.",
+  "onboardingDesc3": "Pengembalian barang atau pembatalan pembelian sebelumnya. Retur memiliki opsi untuk refund tunai atau disimpan di store credit.",
+  "onboardingTitle1": "BOPIS dan BORIS",
+  "onboardingTitle2": "Promosi, Harga Coret, dan Buku Harga",
+  "onboardingTitle3": "Proses Retur dan Refund",
+  "openCashier": "Buka Kasir",
+  "outletNotIntegrated": "Jubelio POS belum terintegrasi",
+  "outletNotFound": "Outlet tidak ditemukan",
+  "password": "Password",
+  "pickDate": "Pilih Tanggal",
+  "phoneNumberShort": "No. Telepon",
+  "pleaseCallManagerToGetAccessCode": "Harap hubungi akun manager anda untuk memberikan akses penjualan.",
+  "point": "Poin",
+  "pointExpired": "{pointLabel} Akan Kedaluwarsa",
+  "@pointExpired": {
+    "description": "Label untuk menampilkan poin yang kedaluwarsa",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "pointNow": "{pointLabel} Saat Ini",
+  "@pointNow": {
+    "description": "Label untuk menampilkan poin saat ini",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "pointXAvailable": "{pointLabel} tersedia",
+  "@pointXAvailable": {
+    "description": "Label untuk menampilkan poin yang tersedia",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      }
+    }
+  },
+  "printLastClosureReceipt": "Cetak Struk Penutupan Kasir",
+  "register": "Register",
+  "registerLocation": "Lokasi Register",
+  "reset": "Reset",
+  "redeem": "Tukarkan",
+  "redeemAll": "Tukarkan Semua",
+  "returnNumberShort": "No. Retur",
+  "save": "Simpan",
+  "scan": "Scan",
+  "scanBarcode": "Scan Barcode",
+  "search": "Cari",
+  "searchItem": "Cari Barang",
+  "searchLocation": "Cari Lokasi",
+  "searchResultNotFound": "Hasil tidak ditemukan",
+  "selectBirthday": "Pilih Tanggal Lahir",
+  "selectCustomer": "Pilih Pelanggan",
+  "setAsPriceChecker": "Jadikan Price Checker",
+  "stillActiveCashier": "Masih ada Kasir yang aktif.",
+  "thisTransactionAutomaticallyGet": "Transaksi ini otomatis mendapatkan",
+  "tierProgress": "Progres Tier",
+  "totalConverted": "Total Konversi",
+  "transaction": "Transaksi",
+  "transactionNumberShort": "No. Transaksi",
+  "transactionSearch": "Pencarian Transaksi",
+  "transactionNotPaid": "Belum Lunas",
+  "transactionNotSync": "Belum Sync",
+  "transactionQRISNotPaid": "Belum Lunas (QRIS)",
+  "turnOnInternetToContinue": "Harap mengaktifkan koneksi internet anda untuk melanjutkan",
+  "unlimited": "Tidak Terbatas",
+  "useAll": "Gunakan Semua",
+  "useLoyaltyPoints": "Gunakan Poin Loyalty",
+  "useLoyaltyXPointY": "Gunakan {pointLabel} {loyaltyName}",
+  "@useLoyaltyXPointY": {
+    "description": "Label untuk menampilkan poin loyalty yang akan digunakan",
+    "placeholders": {
+      "pointLabel": {
+        "type": "String",
+        "example": "Points"
+      },
+      "loyaltyName": {
+        "type": "String",
+        "example": "Gold Points"
+      }
+    }
+  },
+  "warning": "Perhatian",
+  "warningPriceBelowHpp": "Harga jual tidak boleh lebih rendah dari HPP sesuai pengaturan toko.",
+  "warningPriceBelowHppConfirmation": "Harga yang Anda masukkan di bawah HPP. Apakah Anda yakin ingin melanjutkan?",
+  "welcome": "Selamat datang",
+  "willExpiredOnX": "akan kedaluwarsa pada {dateX}",
+  "@willExpiredOnX": {
+    "description": "Label untuk menampilkan tanggal kedaluwarsa",
+    "placeholders": {
+      "dateX": {
+        "type": "String",
+        "example": "31 Des 2024"
+      }
+    }
+  },
+  "xAvailable": "{name} Tersedia",
+  "@xAvailable": {
+    "description": "Label untuk menampilkan jumlah poin yang tersedia",
+    "placeholders": {
+      "name": {
+        "type": "String",
+        "example": "1000 atau Poin"
+      }
+    }
+  },
+  "xYAvailableZ": "{point} {pointName} tersedia, 1 {pointName} = {pointZ}",
+  "@xYAvailableZ": {
+    "description": "Label untuk menampilkan poin yang tersedia dengan nilai konversi",
+    "placeholders": {
+      "point": {
+        "type": "int",
+        "example": "1000"
+      },
+      "pointName": {
+        "type": "String",
+        "example": "Poin"
+      },
+      "pointZ": {
+        "type": "String",
+        "example": "$0.01"
+      }
+    }
+  },
+  "xToY": "{X} ke {Y}",
+  "@xToY": {
+    "description": "Label untuk menampilkan pesan x ke y",
+    "placeholders": {
+      "X": {
+        "type": "String",
+        "example": "1000 Poin"
+      },
+      "Y": {
+        "type": "String",
+        "example": "Silver"
+      }
+    }
+  },
+  "yes": "Ya",
+  "yesContinue": "Ya, Lanjutkan"
+}

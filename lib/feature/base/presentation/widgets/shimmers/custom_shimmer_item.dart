@@ -8,16 +8,35 @@ class CustomShimmer extends StatelessWidget {
     required this.height,
     required this.width,
     this.radius = 0.0,
+    this.highlightColor,
+    this.baseColor,
   });
+
   final double height;
   final double width;
   final double radius;
+  final Color? highlightColor;
+  final Color? baseColor;
+
+  factory CustomShimmer.secondary({
+    required double height,
+    required double width,
+    double radius = 4.0,
+  }) {
+    return CustomShimmer(
+      height: height,
+      width: width,
+      radius: radius,
+      highlightColor: Colors.black12,
+      baseColor: Colors.black26,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Shimmer.fromColors(
-      highlightColor: Colors.white10,
-      baseColor: ColorConstants.shadowCardColor,
+      highlightColor: highlightColor ?? Colors.white10,
+      baseColor: baseColor ?? ColorConstants.shadowCardColor,
       child: Container(
         height: height,
         width: width,

@@ -6,16 +6,22 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
-    required this.title,
+    this.title,
+    this.customTitle,
     this.iconData,
     this.trailing,
     this.leading,
+    this.actions,
+    this.centerTitle,
   });
 
-  final String title;
+  final String? title;
+  final Widget? customTitle;
   final IconData? iconData;
   final Widget? trailing;
   final Widget? leading;
+  final List<Widget>? actions;
+  final bool? centerTitle;
 
   @override
   Size get preferredSize => const Size.fromHeight(kToolbarHeight);
@@ -29,15 +35,17 @@ class _CustomAppBarState extends State<CustomAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 1,
+      centerTitle: widget.centerTitle,
       backgroundColor: ColorConstants.white,
       iconTheme: const IconThemeData(
         color: ColorConstants.iconColor,
       ),
-      title: CustomText(
-        text: widget.title,
-        fontWeight: FontWeight.w700,
-        fontSize: 18.sp,
-      ),
+      title: widget.customTitle ??
+          CustomText(
+            text: widget.title ?? 'Page',
+            fontWeight: FontWeight.w700,
+            fontSize: 18.sp,
+          ),
       leading: widget.leading,
       actions: [
         if (widget.iconData != null)
@@ -49,6 +57,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
           ),
         widget.trailing ?? const SizedBox.shrink(),
+        if ((widget.actions ?? []).isNotEmpty) ...widget.actions!,
       ],
     );
   }

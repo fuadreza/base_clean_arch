@@ -98,7 +98,7 @@ class LoginButton extends StatelessWidget {
           return ValueListenableBuilder(
             valueListenable: isValidForm,
             builder: (context, value, child) {
-              return CustomPrimaryButton(
+              return CustomButton(
                 label: 'Masuk',
                 enable: value,
                 rounded: true,
