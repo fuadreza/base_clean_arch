@@ -8,7 +8,7 @@ part of 'login_entity.dart';
 
 class LoginEntityAdapter extends TypeAdapter<LoginEntity> {
   @override
-  final int typeId = 2;
+  final typeId = 2;
 
   @override
   LoginEntity read(BinaryReader reader) {
@@ -27,12 +27,12 @@ class LoginEntityAdapter extends TypeAdapter<LoginEntity> {
       roles: (fields[7] as List?)?.cast<dynamic>(),
       restoreId: fields[8] as String?,
       acls: (fields[9] as List?)?.cast<int>(),
-      currentLocation: fields[10] as int?,
-      packageId: fields[11] as int?,
-      trialLeft: fields[12] as int?,
+      currentLocation: (fields[10] as num?)?.toInt(),
+      packageId: (fields[11] as num?)?.toInt(),
+      trialLeft: (fields[12] as num?)?.toInt(),
       showGettingStarted: fields[13] as bool?,
       showOnboardingWizard: fields[14] as bool?,
-      currentCompany: fields[15] as int?,
+      currentCompany: (fields[15] as num?)?.toInt(),
       companies: fields[16] as String?,
       isOwner: fields[17] as bool?,
       posShowGettingStarted: fields[18] as bool?,
@@ -93,5 +93,64 @@ class LoginEntityAdapter extends TypeAdapter<LoginEntity> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is LoginEntityAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is LoginEntityAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
+
+// **************************************************************************
+// JsonSerializableGenerator
+// **************************************************************************
+
+LoginEntity _$LoginEntityFromJson(Map<String, dynamic> json) => LoginEntity(
+      token: json['token'] as String?,
+      passwordExpired: json['passwordExpired'] as bool?,
+      userName: json['userName'] as String?,
+      fullName: json['fullName'] as String?,
+      subscription: json['subscription'] as String?,
+      billingPhone: json['billingPhone'] as String?,
+      phone: json['phone'] as String?,
+      roles: json['roles'] as List<dynamic>?,
+      restoreId: json['restoreId'] as String?,
+      acls: (json['acls'] as List<dynamic>?)
+          ?.map((e) => (e as num).toInt())
+          .toList(),
+      currentLocation: (json['currentLocation'] as num?)?.toInt(),
+      packageId: (json['packageId'] as num?)?.toInt(),
+      trialLeft: (json['trialLeft'] as num?)?.toInt(),
+      showGettingStarted: json['showGettingStarted'] as bool?,
+      showOnboardingWizard: json['showOnboardingWizard'] as bool?,
+      currentCompany: (json['currentCompany'] as num?)?.toInt(),
+      companies: json['companies'] as String?,
+      isOwner: json['isOwner'] as bool?,
+      posShowGettingStarted: json['posShowGettingStarted'] as bool?,
+      enableFulfillment: json['enableFulfillment'] as bool?,
+      isWmsMigrated: json['isWmsMigrated'] as bool?,
+    );
+
+Map<String, dynamic> _$LoginEntityToJson(LoginEntity instance) =>
+    <String, dynamic>{
+      'token': instance.token,
+      'passwordExpired': instance.passwordExpired,
+      'userName': instance.userName,
+      'fullName': instance.fullName,
+      'subscription': instance.subscription,
+      'billingPhone': instance.billingPhone,
+      'phone': instance.phone,
+      'roles': instance.roles,
+      'restoreId': instance.restoreId,
+      'acls': instance.acls,
+      'currentLocation': instance.currentLocation,
+      'packageId': instance.packageId,
+      'trialLeft': instance.trialLeft,
+      'showGettingStarted': instance.showGettingStarted,
+      'showOnboardingWizard': instance.showOnboardingWizard,
+      'currentCompany': instance.currentCompany,
+      'companies': instance.companies,
+      'isOwner': instance.isOwner,
+      'posShowGettingStarted': instance.posShowGettingStarted,
+      'enableFulfillment': instance.enableFulfillment,
+      'isWmsMigrated': instance.isWmsMigrated,
+    };

@@ -1,4 +1,10 @@
 // it will have field: source(String), payload(Map<String, dynamic>, and timestamp
+
+import 'package:json_annotation/json_annotation.dart';
+
+part 'notification_local_entity.g.dart';
+
+@JsonSerializable()
 class NotificationLocalEntity {
   const NotificationLocalEntity({
     required this.source,
@@ -6,25 +12,14 @@ class NotificationLocalEntity {
     required this.timestamp,
   });
 
+  @JsonKey(name: 'source')
   final String source;
+  @JsonKey(name: 'payload')
   final Map<String, dynamic> payload;
+  @JsonKey(name: 'timestamp')
   final DateTime timestamp;
 
-  // Factory method to create an instance from a JSON map
-  factory NotificationLocalEntity.fromJson(Map<String, dynamic> json) {
-    return NotificationLocalEntity(
-      source: json['source'] as String,
-      payload: json['payload'] as Map<String, dynamic>,
-      timestamp: DateTime.parse(json['timestamp'] as String),
-    );
-  }
+  factory NotificationLocalEntity.fromJson(Map<String, dynamic> json) => _$NotificationLocalEntityFromJson(json);
 
-  // Method to convert the instance to a JSON map
-  Map<String, dynamic> toJson() {
-    return {
-      'source': source,
-      'payload': payload,
-      'timestamp': timestamp.toIso8601String(),
-    };
-  }
+  Map<String, dynamic> toJson() => _$NotificationLocalEntityToJson(this);
 }

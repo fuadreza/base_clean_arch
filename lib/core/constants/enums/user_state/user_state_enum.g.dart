@@ -8,7 +8,7 @@ part of 'user_state_enum.dart';
 
 class UserStateEnumAdapter extends TypeAdapter<UserStateEnum> {
   @override
-  final int typeId = 3;
+  final typeId = 3;
 
   @override
   UserStateEnum read(BinaryReader reader) {
@@ -31,16 +31,12 @@ class UserStateEnumAdapter extends TypeAdapter<UserStateEnum> {
     switch (obj) {
       case UserStateEnum.notLoggedIn:
         writer.writeByte(0);
-        break;
       case UserStateEnum.loggedIn:
         writer.writeByte(1);
-        break;
       case UserStateEnum.priceChecker:
         writer.writeByte(2);
-        break;
       case UserStateEnum.cashier:
         writer.writeByte(3);
-        break;
     }
   }
 
@@ -48,5 +44,9 @@ class UserStateEnumAdapter extends TypeAdapter<UserStateEnum> {
   int get hashCode => typeId.hashCode;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is UserStateEnumAdapter && runtimeType == other.runtimeType && typeId == other.typeId;
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is UserStateEnumAdapter &&
+          runtimeType == other.runtimeType &&
+          typeId == other.typeId;
 }
